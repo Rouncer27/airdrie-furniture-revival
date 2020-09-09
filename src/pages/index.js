@@ -1,132 +1,117 @@
 import React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
-import styled from "styled-components"
 
-import {
-  standardWrapper,
-  H1DarkGrey,
-  H2CoolGrey,
-  H3DarkGrey,
-  B1DarkGrey,
-  B2DarkGrey,
-  B2Pink,
-  B3DarkGrey,
-  Nav1CoolGrey,
-} from "../styles/helpers"
+import Intro from "../components/TemplateComponents/Home/Intro"
+import ClosedCrop from "../components/TemplateComponents/Home/ClosedCrop"
+import MailChimpList from "../components/TemplateComponents/Home/MailChimpList"
+import ShopNow from "../components/TemplateComponents/Home/ShopNow"
 
-const IndexSection = styled.div`
-  ${standardWrapper};
+const IndexPage = props => {
+  const { homeIntro, closedCrop, mailChimp, shopNow } = props.data
+  const location = props.location
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Intro homeIntro={homeIntro} />
+      <ClosedCrop closedCrop={closedCrop} />
+      <MailChimpList mailChimp={mailChimp} />
+      <ShopNow shopNow={shopNow} />
+    </Layout>
+  )
+}
 
-  .headlines {
-    &__one {
-      ${H1DarkGrey};
+export const homeQuery = graphql`
+  {
+    homeIntro: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _afr_hpit_image_left {
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1000) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        _afr_hpit_image_right {
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1000) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        _afr_hpit_title
+        _afr_hpit_content
+        _afr_hpib_image {
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1000) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        _afr_hpib_title
+        _afr_hpib_content
+        _afr_hpi_logo {
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
     }
 
-    &__two {
-      ${H2CoolGrey};
+    closedCrop: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _afr_close_crop_content
+      }
     }
-
-    &__three {
-      ${H3DarkGrey};
+    mailChimp: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _acf_mailchimp_list
+        _afr_mailchimp_list_content
+      }
     }
-  }
-
-  .paragraphs {
-    &__one {
-      ${B1DarkGrey};
-    }
-
-    &__two {
-      ${B2DarkGrey};
-    }
-
-    &__twopink {
-      ${B2Pink};
-    }
-
-    &__three {
-      ${B3DarkGrey};
-    }
-  }
-
-  .navigation {
-    &__one {
-      ${Nav1CoolGrey};
+    shopNow: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _afr_hosns_title
+        _afr_hosns_content
+        _afr_hosns_link_url
+        _afr_hosns_image_top {
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1000) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        _afr_hosns_image_bottom {
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1000) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
     }
   }
 `
-
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <IndexSection>
-      <div className="headlines">
-        <h1 className="headlines__one">
-          Headline 1 - Donec nec justo eget felis facilisis fermentum. Aliquam
-          porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-        </h1>
-        <h1 className="headlines__two">
-          Headline 2 - Donec nec justo eget felis facilisis fermentum. Aliquam
-          porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-        </h1>
-        <h1 className="headlines__three">
-          Headline 3 - Donec nec justo eget felis facilisis fermentum. Aliquam
-          porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-        </h1>
-      </div>
-      <div className="paragraphs">
-        <p className="paragraphs__one">
-          Body 1 - Morbi interdum mollis sapien. Sed ac risus. Phasellus
-          lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus,
-          vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh
-          felis, adipiscing varius, adipiscing in, lacinia vel, tellus.
-          Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus
-          ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede,
-          ornare a, lacinia eu, vulputate vel, nisl.
-        </p>
-        <p className="paragraphs__two">
-          Body 2 - Morbi interdum mollis sapien. Sed ac risus. Phasellus
-          lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus,
-          vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh
-          felis, adipiscing varius, adipiscing in, lacinia vel, tellus.
-          Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus
-          ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede,
-          ornare a, lacinia eu, vulputate vel, nisl.
-        </p>
-        <p className="paragraphs__twopink">
-          Body 2 Pink - Morbi interdum mollis sapien. Sed ac risus. Phasellus
-          lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus,
-          vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh
-          felis, adipiscing varius, adipiscing in, lacinia vel, tellus.
-          Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus
-          ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede,
-          ornare a, lacinia eu, vulputate vel, nisl.
-        </p>
-        <p className="paragraphs__three">
-          Body 3 - Morbi interdum mollis sapien. Sed ac risus. Phasellus
-          lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus,
-          vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh
-          felis, adipiscing varius, adipiscing in, lacinia vel, tellus.
-          Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus
-          ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede,
-          ornare a, lacinia eu, vulputate vel, nisl.
-        </p>
-      </div>
-      <div className="navigation">
-        <p className="navigation__one">
-          Nav 1 - Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia,
-          magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae
-          facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis,
-          adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac
-          urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis
-          eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a,
-          lacinia eu, vulputate vel, nisl.
-        </p>
-      </div>
-    </IndexSection>
-  </Layout>
-)
 
 export default IndexPage

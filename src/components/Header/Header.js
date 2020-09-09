@@ -17,21 +17,31 @@ const HeaderStyled = styled.header`
   }
 
   .horseGraphic {
+    display: none;
     position: absolute;
     top: 0;
     left: 5vw;
     width: 31.25rem;
     height: 32.05rem;
     z-index: -1;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
 
   .flowersGraphic {
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
     width: 46.14rem;
     height: 29.35rem;
     z-index: -1;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
 `
 
