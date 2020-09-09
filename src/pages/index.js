@@ -7,9 +7,10 @@ import Intro from "../components/TemplateComponents/Home/Intro"
 import ClosedCrop from "../components/TemplateComponents/Home/ClosedCrop"
 import MailChimpList from "../components/TemplateComponents/Home/MailChimpList"
 import ShopNow from "../components/TemplateComponents/Home/ShopNow"
+import HowItWorks from "../components/TemplateComponents/Home/HowItWorks"
 
 const IndexPage = props => {
-  const { homeIntro, closedCrop, mailChimp, shopNow } = props.data
+  const { homeIntro, closedCrop, mailChimp, shopNow, howItWorks } = props.data
   const location = props.location
   return (
     <Layout>
@@ -18,6 +19,7 @@ const IndexPage = props => {
       <ClosedCrop closedCrop={closedCrop} />
       <MailChimpList mailChimp={mailChimp} />
       <ShopNow shopNow={shopNow} />
+      <HowItWorks howItWorks={howItWorks} />
     </Layout>
   )
 }
@@ -109,6 +111,13 @@ export const homeQuery = graphql`
             }
           }
         }
+      }
+    }
+    howItWorks: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _afr_hoitwor_step_one
+        _afr_hoitwor_step_two
+        _afr_hoitwor_step_three
       }
     }
   }
