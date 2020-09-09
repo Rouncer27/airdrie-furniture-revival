@@ -8,9 +8,21 @@ import ClosedCrop from "../components/TemplateComponents/Home/ClosedCrop"
 import MailChimpList from "../components/TemplateComponents/Home/MailChimpList"
 import ShopNow from "../components/TemplateComponents/Home/ShopNow"
 import HowItWorks from "../components/TemplateComponents/Home/HowItWorks"
+import AsSeenOn from "../components/TemplateComponents/Home/AsSeenOn"
+import Testimonials from "../components/TemplateComponents/Home/Testimonials"
+import Showcase from "../components/TemplateComponents/Home/Showcase"
 
 const IndexPage = props => {
-  const { homeIntro, closedCrop, mailChimp, shopNow, howItWorks } = props.data
+  const {
+    homeIntro,
+    closedCrop,
+    mailChimp,
+    shopNow,
+    howItWorks,
+    asSeenOn,
+    testimonials,
+    showcase,
+  } = props.data
   const location = props.location
   return (
     <Layout>
@@ -20,6 +32,9 @@ const IndexPage = props => {
       <MailChimpList mailChimp={mailChimp} />
       <ShopNow shopNow={shopNow} />
       <HowItWorks howItWorks={howItWorks} />
+      <AsSeenOn asSeenOn={asSeenOn} />
+      <Testimonials testimonials={testimonials} />
+      <Showcase showcase={showcase} />
     </Layout>
   )
 }
@@ -118,6 +133,49 @@ export const homeQuery = graphql`
         _afr_hoitwor_step_one
         _afr_hoitwor_step_two
         _afr_hoitwor_step_three
+      }
+    }
+    asSeenOn: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _afr_hoasnn_logos {
+          logo {
+            alt_text
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    testimonials: allWordpressWpTestimonials {
+      edges {
+        node {
+          acf {
+            _afr_testimonial_content
+          }
+        }
+      }
+    }
+
+    showcase: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _afc_home_showcase_images {
+          image {
+            alt_text
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 750) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

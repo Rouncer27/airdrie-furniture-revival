@@ -15,7 +15,7 @@ import IconCart from "../../Icons/IconCart"
 import IconDesk from "../../Icons/IconDesk"
 
 const HowItWorksSection = styled.section`
-  background-color: ${colors.colorPrimary};
+  background-color: rgba(244, 212, 210, 0.4);
 
   .wrapper {
     ${medWrapper};

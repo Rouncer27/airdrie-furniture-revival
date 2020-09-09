@@ -43,6 +43,7 @@ module.exports = {
           "**/pages",
           "**/wp-api-menus/v2",
           "**/wp-api-menus/v2/menus",
+          "**/testimonials",
         ],
       },
     },
