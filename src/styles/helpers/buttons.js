@@ -4,9 +4,10 @@ import { fonts, fontSizer } from "./index"
 const Btn1Base = `
   ${fontSizer(1.4, 1.8, 76.8, 150, 1.8)};
   display: inline-block;
-  padding: 1.75rem 4rem;
+  padding: 0.75rem 4rem;
   transition: all 0.3s ease;
-  box-shadow: 0.1rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.16);
+  border: solid 0.2rem ${colors.greyBrown};
+  border-radius: 0.5rem;
   font-family: ${fonts.fontPrimary};
   font-weight: normal;
   font-stretch: normal;
@@ -30,15 +31,16 @@ const Btn1Base = `
   }
 `
 
-export const Btn1LimeGreen = `
+export const Btn1DarkGrey = `
   ${Btn1Base};
-  border-color: ${colors.colorPrimary};
-  background: ${colors.colorPrimary};
+  border-color: ${colors.greyBrown};
+  background: transparent;
   color: ${colors.greyBrown};
 
   &:hover {
     color: ${colors.white};
-    background: ${colors.colorSecondary};
+    border-color: ${colors.colorAccent};
+    background: ${colors.colorAccent};
   }
 `
 

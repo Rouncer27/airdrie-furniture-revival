@@ -16,6 +16,11 @@ export const B1DarkGrey = `
   color: ${colors.greyBrown};
 `
 
+export const B1White = `
+  ${B1Base};
+  color: ${colors.white};
+`
+
 // Body copy TWO //
 export const B2Base = `
   ${fontSizer(2, 2.4, 76.8, 150, 2)};
