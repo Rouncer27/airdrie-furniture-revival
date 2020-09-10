@@ -7,6 +7,7 @@ import {
   standardWrapper,
   B1DarkGrey,
   H1DarkGrey,
+  colors,
 } from "../../../styles/helpers"
 import Brushes from "../../ClosedCropped/Brushes"
 
@@ -41,6 +42,7 @@ const TestSection = styled.section`
     @media (min-width: 768px) {
       width: calc(50% - 7.5rem);
       margin-right: 7.5rem;
+      padding-right: 10rem;
     }
 
     h2 {
@@ -58,6 +60,35 @@ const TestSection = styled.section`
 
     p {
       ${B1DarkGrey};
+    }
+
+    .slick-dots {
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: auto;
+
+      @media (min-width: 768px) {
+        right: auto;
+        bottom: -1rem;
+        left: 1rem;
+      }
+
+      li {
+        button {
+          &::before {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      li.slick-active {
+        button {
+          &::before {
+            color: ${colors.colorPrimary};
+          }
+        }
+      }
     }
   }
 

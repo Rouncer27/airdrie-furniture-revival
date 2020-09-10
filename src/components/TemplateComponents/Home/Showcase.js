@@ -1,18 +1,26 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import { medWrapper } from "../../../styles/helpers"
 
 const ShowcaseSection = styled.div`
   .wrapper {
-    ${medWrapper};
-    margin-top: 0;
-    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: calc(100% - 1.5rem);
+    margin: auto;
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
   }
 
   .imageItem {
-    width: calc(16.6666% - 1rem);
-    margin: auto 0.5rem;
+    width: calc(16.6666% - 1.5rem);
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .imageItem:last-of-type {
+    margin-right: 0;
   }
 `
 
