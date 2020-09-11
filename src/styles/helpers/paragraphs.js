@@ -40,6 +40,10 @@ export const B2DarkGrey = `
   ${B2Base};
   color: ${colors.greyBrown};
 `
+export const B2CoolGrey = `
+  ${B2Base};
+  color: ${colors.colorTertiary};
+`
 export const B2Pink = `
   ${B2Base};
   color: ${colors.colorPrimary};

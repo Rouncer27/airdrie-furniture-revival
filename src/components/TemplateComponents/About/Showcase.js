@@ -26,9 +26,9 @@ const ShowcaseSection = styled.div`
 
 const Showcase = ({ showcase }) => {
   return (
-    <ShowcaseSection numImages={showcase.acf._afc_home_showcase_images.length}>
+    <ShowcaseSection numImages={showcase.acf._afc_about_showcase_images.length}>
       <div className="wrapper">
-        {showcase.acf._afc_home_showcase_images.map((image, index) => {
+        {showcase.acf._afc_about_showcase_images.map((image, index) => {
           return (
             <div className="imageItem" key={index}>
               <Img
