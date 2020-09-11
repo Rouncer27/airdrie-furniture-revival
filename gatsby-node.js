@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
               template
               wordpress_id
+              path
             }
           }
         }
@@ -51,6 +52,22 @@ exports.createPages = async ({ graphql, actions }) => {
         createPage({
           path: `/${node.slug}`,
           component: path.resolve(`./src/templates/faq.js`),
+          context: {
+            id: node.wordpress_id,
+          },
+        })
+      } else if (node.template === "tpl-page-bring-furniture.php") {
+        createPage({
+          path: `${node.path}`,
+          component: path.resolve(`./src/templates/bringFurniture.js`),
+          context: {
+            id: node.wordpress_id,
+          },
+        })
+      } else if (node.template === "tpl-page-knob-selection.php") {
+        createPage({
+          path: `${node.path}`,
+          component: path.resolve(`./src/templates/knobSelections.js`),
           context: {
             id: node.wordpress_id,
           },
