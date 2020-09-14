@@ -6,6 +6,7 @@ import SEO from "../components/Seo"
 import Intro from "../components/TemplateComponents/Contact/Intro"
 import Testimonials from "../components/TemplateComponents/Contact/Testimonials"
 import AsSeenOn from "../components/TemplateComponents/Contact/AsSeenOn"
+import Form from "../components/TemplateComponents/Contact/Form"
 
 const contact = props => {
   const { contactIntro, testimonials, asSeenOn } = props.data
@@ -14,6 +15,7 @@ const contact = props => {
     <Layout>
       <SEO title="content" />
       <Intro contactIntro={contactIntro} />
+      <Form />
       <AsSeenOn asSeenOn={asSeenOn} />
       <Testimonials testimonials={testimonials} />
     </Layout>
