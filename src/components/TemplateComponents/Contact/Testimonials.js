@@ -37,12 +37,15 @@ const TestSection = styled.section`
     align-items: center;
     justify-content: center;
     width: 100%;
-    text-align: right;
+    margin-bottom: 5rem;
+    text-align: center;
 
     @media (min-width: 768px) {
       width: calc(50% - 7.5rem);
       margin-right: 7.5rem;
+      margin-bottom: 0;
       padding-right: 10rem;
+      text-align: right;
     }
 
     h2 {
@@ -95,9 +98,15 @@ const TestSection = styled.section`
   .closeBrushes {
     position: absolute;
     bottom: 0;
-    left: 5rem;
-    width: 20rem;
+    left: -5rem;
+    width: 15rem;
     z-index: -1;
+
+    @media (min-width: 768px) {
+      bottom: 0;
+      left: 5rem;
+      width: 20rem;
+    }
   }
 `
 

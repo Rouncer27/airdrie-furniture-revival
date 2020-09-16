@@ -2,7 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import BGImage from "gatsby-background-image"
-import { medWrapper, colors, H1White, B1White } from "../../../styles/helpers"
+import {
+  medWrapperMobile,
+  colors,
+  H1White,
+  B1White,
+} from "../../../styles/helpers"
 
 const IntroSection = styled.section`
   position: relative;
@@ -11,8 +16,9 @@ const IntroSection = styled.section`
   z-index: 10;
 
   .wrapper {
-    ${medWrapper};
+    ${medWrapperMobile};
     position: relative;
+    padding: 0;
   }
 
   .introTop {
@@ -68,11 +74,27 @@ const IntroSection = styled.section`
   }
 
   .introLogo {
+    display: none;
     position: absolute;
-    bottom: -5rem;
+    top: 29.5%;
     left: 16.5%;
     width: 20rem;
     height: 20rem;
+
+    @media (min-width: 768px) {
+      display: block;
+      top: 75%;
+      left: calc(50% - (17.5rem / 2));
+      width: 17.5rem;
+      height: 17.5rem;
+    }
+
+    @media (min-width: 1025px) {
+      top: 29.5%;
+      left: 16.5%;
+      width: 20rem;
+      height: 20rem;
+    }
   }
 `
 
