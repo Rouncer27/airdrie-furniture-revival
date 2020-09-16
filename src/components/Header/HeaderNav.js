@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import HeaderNavItem from "./HeaderNavItem"
+import { colors } from "../../styles/helpers"
 
 const getData = graphql`
   {
@@ -22,11 +23,12 @@ const HeaderNavStyled = styled.nav`
   display: none;
   align-self: center;
   width: 100%;
+  margin: 0 auto;
   padding: 0 2rem;
 
   @media (min-width: 768px) {
     display: block;
-    width: 100%;
+    width: auto;
     margin: 2rem auto;
   }
 
@@ -35,6 +37,7 @@ const HeaderNavStyled = styled.nav`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    border-bottom: 0.2rem solid ${colors.colorTertiary};
   }
 `
 

@@ -21,6 +21,7 @@ const getData = graphql`
 
 const FooterListSection = styled.div`
   width: 100%;
+  background-color: ${colors.colorSecondary};
 
   @media (min-width: 768px) {
     width: calc(40%);
@@ -30,8 +31,17 @@ const FooterListSection = styled.div`
     padding: 2rem;
     max-width: 40rem;
     margin: 2rem auto;
-    margin-left: 5rem;
     text-align: center;
+
+    @media (min-width: 768px) {
+    }
+
+    @media (min-width: 1025px) {
+      margin-left: 2.5rem;
+    }
+    @media (min-width: 1200px) {
+      margin-left: 5rem;
+    }
   }
 
   .listTitle {

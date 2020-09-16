@@ -19,12 +19,19 @@ const FooterCopySection = styled.div`
   }
 
   .footPrivacy {
-    width: 50%;
-    text-align: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 2.5rem;
     margin-right: 0;
     margin-bottom: 1rem;
     margin-left: auto;
     color: ${colors.white};
+
+    @media (min-width: 768px) {
+      width: 50%;
+      margin-top: auto;
+      text-align: left;
+    }
 
     a {
       ${B1White};
@@ -40,6 +47,11 @@ const FooterCopySection = styled.div`
   .footCopy {
     width: 100%;
     margin-top: 3rem;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
 
     p {
       ${B1White};

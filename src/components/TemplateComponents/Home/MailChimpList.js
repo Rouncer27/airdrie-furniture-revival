@@ -28,16 +28,24 @@ const MailChimpListSection = styled.section`
 
   .wrapper {
     ${standardWrapper};
+    flex-direction: column-reverse;
     align-items: center;
 
     @media (min-width: 768px) {
+      flex-direction: row;
       max-width: 80rem;
     }
   }
 
   .chimpLink {
-    width: calc(33.33%);
+    width: calc(100%);
+    margin-top: 5rem;
     text-align: center;
+
+    @media (min-width: 768px) {
+      width: calc(33.33%);
+      margin-top: 0;
+    }
 
     h2 {
       ${H1DarkGrey};
@@ -49,8 +57,14 @@ const MailChimpListSection = styled.section`
   }
 
   .chimpContent {
-    width: calc(66.66% - 2rem);
-    margin-left: 2rem;
+    width: calc(100%);
+    text-align: center;
+
+    @media (min-width: 768px) {
+      width: calc(66.66% - 2rem);
+      margin-left: 2rem;
+      text-align: left;
+    }
 
     p {
       ${B2DarkGrey};

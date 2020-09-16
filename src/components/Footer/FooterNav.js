@@ -48,12 +48,14 @@ const getData = graphql`
 
 const FooterNavSection = styled.div`
   width: 100%;
+  padding: 7.5rem 0;
   background-color: ${colors.colorAccent};
 
   @media (min-width: 768px) {
     width: calc(60%);
     max-width: 60rem;
     margin-left: auto;
+    padding: 0;
   }
 
   .wrapper {
@@ -64,17 +66,28 @@ const FooterNavSection = styled.div`
     width: 100%;
   }
   .navSocial {
-    width: calc(50% - 5rem);
-    margin-right: 5rem;
-    padding: 2rem;
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(50% - 5rem);
+      margin-right: 5rem;
+      padding: 2rem;
+    }
   }
 
   .navItems {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 50%;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 50%;
+    }
+
+    @media (min-width: 1025px) {
+    }
 
     nav {
       display: flex;
@@ -94,6 +107,18 @@ const FooterNavSection = styled.div`
   .navLogo {
     width: 100%;
     margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+    }
+
+    div {
+      max-width: 20rem;
+      margin: auto;
+
+      @media (min-width: 768px) {
+        max-width: 100%;
+      }
+    }
   }
 
   .socialIcons {
@@ -104,7 +129,14 @@ const FooterNavSection = styled.div`
 
     p {
       ${B2Pink};
+      width: 100%;
       margin: 1rem auto;
+      text-align: center;
+
+      @media (min-width: 768px) {
+        width: auto;
+        text-align: left;
+      }
     }
 
     li {
@@ -120,6 +152,15 @@ const FooterNavSection = styled.div`
         border-radius: 50%;
         background-color: ${colors.colorPrimary};
 
+        @media (min-width: 768px) {
+          width: 4rem;
+          height: 4rem;
+        }
+        @media (min-width: 1025px) {
+          width: 5rem;
+          height: 5rem;
+        }
+
         &::after {
           display: block;
           position: absolute;
@@ -130,6 +171,18 @@ const FooterNavSection = styled.div`
           font-family: ${fonts.fontAwesome};
           font-size: 2.8rem;
           content: "";
+        }
+
+        @media (min-width: 768px) {
+          &::after {
+            font-size: 2rem;
+          }
+        }
+
+        @media (min-width: 1025px) {
+          &::after {
+            font-size: 2.8rem;
+          }
         }
       }
     }

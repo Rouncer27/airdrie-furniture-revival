@@ -8,10 +8,10 @@ import FooterList from "./FooterList"
 
 const FooterSection = styled.footer`
   position: relative;
-  padding: 10rem 0 1rem;
+  padding: 0;
 
   @media (min-width: 768px) {
-    padding: 15rem 0 1rem;
+    padding: 7.5rem 0 1rem;
     background: linear-gradient(
       to right,
       ${colors.colorAccent} 0%,

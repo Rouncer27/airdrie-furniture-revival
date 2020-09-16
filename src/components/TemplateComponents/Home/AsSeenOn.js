@@ -17,7 +17,17 @@ const AsSeenOnSection = styled.section`
   }
 
   .asSeenTitle {
-    width: calc(20%);
+    width: calc(100%);
+    text-align: center;
+
+    @media (min-width: 768px) {
+      width: calc(100%);
+    }
+
+    @media (min-width: 1025px) {
+      width: calc(20%);
+      text-align: left;
+    }
 
     h2 {
       ${H2CoolGrey};
@@ -27,22 +37,49 @@ const AsSeenOnSection = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: calc(80% - 5rem);
-    margin-right: 5rem;
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(100%);
+    }
+
+    @media (min-width: 1025px) {
+      width: calc(80% - 5rem);
+      margin-right: 5rem;
+    }
 
     &__logo {
-      width: calc(16.66% - 2em);
-      margin: 0 1rem;
+      width: calc(33.33% - 2em);
+      margin: 1rem;
+
+      @media (min-width: 768px) {
+        width: calc(16.66% - 2em);
+        margin: 0 1rem;
+      }
+
+      @media (min-width: 1025px) {
+        width: calc(16.66% - 2em);
+      }
     }
   }
 
   .closedBrush {
+    display: none;
     position: absolute;
     top: 50%;
     right: -2.5rem;
     width: 38.7rem;
     transform: translateY(-50%);
     z-index: 1;
+
+    @media (min-width: 768px) {
+      display: block;
+      transform: translateY(-10%);
+    }
+
+    @media (min-width: 1025px) {
+      transform: translateY(-50%);
+    }
   }
 `
 

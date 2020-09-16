@@ -32,19 +32,45 @@ const HowItWorksSection = styled.section`
   }
 
   .howStep {
-    width: calc(33.3333% - 4rem);
-    margin: 0 2rem;
+    width: calc(100%);
+    margin: auto;
+    margin-bottom: 5rem;
+
+    @media (min-width: 768px) {
+      width: calc(33.3333% - 2rem);
+      margin: 0 1rem;
+    }
+
+    @media (min-width: 1025px) {
+      width: calc(33.3333% - 4rem);
+      margin: 0 2rem;
+    }
 
     .howStepIcon {
       min-height: 12.5rem;
+      margin: auto;
+
+      @media (min-width: 768px) {
+        margin: 0;
+      }
     }
 
     h3 {
       ${H1DarkGrey};
+      text-align: center;
+
+      @media (min-width: 768px) {
+        text-align: left;
+      }
     }
 
     p {
       ${B1DarkGrey};
+      text-align: center;
+
+      @media (min-width: 768px) {
+        text-align: left;
+      }
     }
   }
 

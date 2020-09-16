@@ -14,13 +14,23 @@ const ShowcaseSection = styled.div`
   }
 
   .imageItem {
-    width: calc((100% / ${props => props.numImages}) - 1.5rem);
-    margin-right: 1.5rem;
+    width: calc((100% / (${props => props.numImages} / 2)) - 1.5rem);
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
     margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+      width: calc((100% / ${props => props.numImages}) - 1.5rem);
+      margin-right: 1.5rem;
+      margin-left: 0;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .imageItem:last-of-type {
-    margin-right: 0;
+    @media (min-width: 768px) {
+      margin-right: 0;
+    }
   }
 `
 
