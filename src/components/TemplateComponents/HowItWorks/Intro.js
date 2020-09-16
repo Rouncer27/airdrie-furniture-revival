@@ -5,7 +5,11 @@ import { medWrapper, B2DarkGrey } from "../../../styles/helpers"
 import IconOpen from "../../Icons/IconOpen"
 
 const IntroSection = styled.section`
-  padding-top: 5rem;
+  padding-top: 1rem;
+
+  @media (min-width: 768px) {
+    padding-top: 5rem;
+  }
 
   .wrapper {
     ${medWrapper};
@@ -18,25 +22,47 @@ const IntroSection = styled.section`
     width: 100%;
     min-height: 30rem;
 
+    @media (min-width: 768px) {
+      min-height: 30rem;
+    }
+
     &__left {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
-      width: calc(25%);
+      width: calc(40% - 2.5rem);
+      margin-right: 2.5rem;
       height: 100%;
+
+      @media (min-width: 768px) {
+        width: calc(25%);
+        margin-right: 0;
+      }
+
+      @media (min-width: 1025px) {
+        width: calc(25%);
+      }
 
       &--inner {
         width: 25rem;
-
         margin: auto;
       }
     }
 
     &__center {
-      width: calc(50% - 5rem);
-      margin: auto 2.5rem;
-      height: 100%;
+      width: calc(60%);
+      height: 30rem;
+
+      @media (min-width: 768px) {
+        width: calc(50% - 5rem);
+        height: 100%;
+        margin: auto 2.5rem;
+      }
+
+      @media (min-width: 1025px) {
+        width: calc(50% - 5rem);
+      }
 
       div {
         width: 100%;
@@ -45,8 +71,13 @@ const IntroSection = styled.section`
     }
 
     &__right {
-      width: calc(25%);
-      height: 100%;
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
+        width: calc(25%);
+        height: 100%;
+      }
 
       div {
         width: 100%;
