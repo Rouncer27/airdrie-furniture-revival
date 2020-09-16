@@ -18,7 +18,10 @@ const PointsSection = styled.section`
   }
 
   .pointsSec {
-    width: calc(65%);
+    width: calc(100%);
+    @media (min-width: 768px) {
+      width: calc(65%);
+    }
 
     &__item {
       padding-bottom: 1rem;
@@ -38,8 +41,11 @@ const PointsSection = styled.section`
   }
 
   .pointsSide {
-    width: calc(35% - 10rem);
-    margin-right: 10rem;
+    width: calc(100%);
+    @media (min-width: 768px) {
+      width: calc(35% - 10rem);
+      margin-right: 10rem;
+    }
 
     &__title {
       margin-bottom: 5rem;
