@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import BGImage from "gatsby-background-image"
 import {
-  medWrapper,
+  medWrapperMobile,
   colors,
   H1DarkGrey,
   B1DarkGrey,
@@ -15,21 +15,39 @@ const IntroSection = styled.section`
   z-index: 10;
 
   .wrapper {
-    ${medWrapper};
+    ${medWrapperMobile};
     position: relative;
+    padding: 0;
   }
 
   .introTop {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column-reverse;
     width: 100%;
-    margin-bottom: 2.5rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    @media (min-width: 1025px) {
+      margin-bottom: 2.5rem;
+    }
 
     &__imageLeft {
-      width: calc(25% - 2.5rem);
-      min-height: 30rem;
-      margin-right: 2.5rem;
+      width: calc(100%);
+      min-height: 55rem;
+
+      @media (min-width: 768px) {
+        width: calc(33.33%);
+        min-height: 30rem;
+      }
+
+      @media (min-width: 1025px) {
+        width: calc(25% - 2.5rem);
+        margin-right: 2.5rem;
+      }
 
       div {
         width: 100%;
@@ -42,8 +60,16 @@ const IntroSection = styled.section`
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
-      width: 50%;
+      width: calc(100%);
       background-color: ${colors.colorPrimary};
+
+      @media (min-width: 768px) {
+        width: 66.66%;
+      }
+
+      @media (min-width: 1025px) {
+        width: 50%;
+      }
 
       &--inner {
         width: 100%;
@@ -60,9 +86,14 @@ const IntroSection = styled.section`
     }
 
     &__imageRight {
+      display: none;
       width: calc(25% - 2.5rem);
       min-height: 30rem;
       margin-left: 2.5rem;
+
+      @media (min-width: 1025px) {
+        display: block;
+      }
 
       div {
         width: 100%;
@@ -78,9 +109,18 @@ const IntroSection = styled.section`
     width: 100%;
 
     &__imageLeft {
-      width: calc(25% - 2.5rem);
-      margin-right: 2.5rem;
+      width: 50%;
       min-height: 40rem;
+
+      @media (min-width: 768px) {
+        width: calc(33.33%);
+        min-height: 40rem;
+      }
+
+      @media (min-width: 1025px) {
+        width: calc(25% - 2.5rem);
+        margin-right: 2.5rem;
+      }
 
       div {
         width: 100%;
@@ -89,8 +129,17 @@ const IntroSection = styled.section`
     }
 
     &__imageRight {
-      width: 75%;
-      min-height: 40rem;
+      width: 50%;
+      min-height: 30rem;
+
+      @media (min-width: 768px) {
+        width: 66.66%;
+        min-height: 40rem;
+      }
+
+      @media (min-width: 1025px) {
+        width: 75%;
+      }
 
       div {
         width: 100%;
@@ -100,11 +149,27 @@ const IntroSection = styled.section`
   }
 
   .introLogo {
+    display: none;
     position: absolute;
     top: 29.5%;
     left: 16.5%;
     width: 20rem;
     height: 20rem;
+
+    @media (min-width: 768px) {
+      display: block;
+      top: 29.5%;
+      left: calc(33.33% - (17.5rem / 2));
+      width: 17.5rem;
+      height: 17.5rem;
+    }
+
+    @media (min-width: 1025px) {
+      top: 29.5%;
+      left: 16.5%;
+      width: 20rem;
+      height: 20rem;
+    }
   }
 `
 

@@ -36,9 +36,10 @@ const AboutDetailsSection = styled.div`
     width: 100%;
 
     &__inner {
-      column-count: 2;
-      column-gap: 5rem;
-
+      @media (min-width: 768px) {
+        column-count: 2;
+        column-gap: 5rem;
+      }
       p {
         ${B1DarkGrey};
       }
@@ -52,18 +53,30 @@ const AboutDetailsSection = styled.div`
     width: 100%;
 
     &__image {
-      width: calc(33.33% - 1rem);
+      width: calc(100%);
+      margin-bottom: 2rem;
+
+      @media (min-width: 768px) {
+        width: calc(33.33% - 1rem);
+        margin-bottom: 0;
+      }
     }
 
     &__image:nth-of-type(1) {
-      margin-right: 1rem;
+      @media (min-width: 768px) {
+        margin-right: 1rem;
+      }
     }
     &__image:nth-of-type(2) {
-      margin-right: 0.5rem;
-      margin-left: 0.5rem;
+      @media (min-width: 768px) {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+      }
     }
     &__image:nth-of-type(3) {
-      margin-left: 1rem;
+      @media (min-width: 768px) {
+        margin-left: 1rem;
+      }
     }
   }
 `
