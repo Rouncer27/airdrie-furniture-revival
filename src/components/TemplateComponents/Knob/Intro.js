@@ -19,8 +19,13 @@ const IntroSection = styled.section`
   }
 
   .introContent {
-    width: calc(66.66%);
+    width: calc(100%);
     padding: 2rem 4rem;
+
+    @media (min-width: 768px) {
+      width: calc(66.66%);
+      padding: 2rem 4rem;
+    }
 
     h2 {
       ${H1White};
@@ -34,7 +39,11 @@ const IntroSection = styled.section`
   }
 
   .introImage {
-    width: calc(33.33%);
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(33.33%);
+    }
   }
 `
 

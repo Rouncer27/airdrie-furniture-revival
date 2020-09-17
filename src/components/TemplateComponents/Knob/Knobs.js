@@ -11,8 +11,15 @@ const KnobsSection = styled.section`
 `
 
 const Knob = styled.div`
-  width: calc(33.33% - 4rem);
+  width: calc(50% - 4rem);
   margin: 2rem;
+
+  @media (min-width: 768px) {
+    width: calc(33.33% - 4rem);
+  }
+  @media (min-width: 1025px) {
+    width: calc(33.33% - 4rem);
+  }
 
   h3 {
     ${B1DarkGrey};
