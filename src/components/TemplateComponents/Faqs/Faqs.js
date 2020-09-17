@@ -96,9 +96,7 @@ const Faqs = ({ faqs }) => {
             <h3>Check out what's waiting for you</h3>
           </div>
           <div className="pointsSide__link">
-            <a href="https://airdriefurniturerevival.swbcreative.ca/">
-              Show Now
-            </a>
+            <a href="https://shop.airdriefurniturerevival.ca/">Show Now</a>
           </div>
         </div>
       </div>

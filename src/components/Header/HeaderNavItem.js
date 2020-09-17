@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { createSlug } from "../../utils/helperFunc"
 import { Nav1CoolGrey } from "../../styles/helpers"
 
-// import HeaderNavItemSubMenu from "./HeaderNavItemSubMenu"
+import HeaderNavItemSubMenu from "./HeaderNavItemSubMenu"
 
 const NavItem = styled.li`
   position: relative;
@@ -35,39 +35,60 @@ const HeaderNavItem = ({ item, location }) => {
     setIsActive(false)
   }
 
-  if (item.url === "") {
+  if (item.type === "custom") {
     navItem = (
-      <span
+      <a
+        href={item.url}
         className="nolink"
         onMouseEnter={handleIsActiveOn}
         onMouseLeave={handleIsActiveOff}
       >
         {item.title}
-      </span>
+      </a>
     )
   } else {
-    slug = createSlug(item.url)
-    current =
-      location !== undefined
-        ? location.pathname.split("/").join("") === slug
-          ? true
+    if (item.url === "") {
+      navItem = (
+        <span
+          className="nolink"
+          onMouseEnter={handleIsActiveOn}
+          onMouseLeave={handleIsActiveOff}
+        >
+          {item.title}
+        </span>
+      )
+    } else {
+      slug = createSlug(item.url)
+      current =
+        location !== undefined
+          ? location.pathname.split("/").join("") === slug
+            ? true
+            : false
           : false
-        : false
 
-    navItem = (
-      <Link
-        onMouseEnter={handleIsActiveOn}
-        onMouseLeave={handleIsActiveOff}
-        to={`/${slug}`}
-      >
-        {item.title}
-      </Link>
-    )
+      navItem = (
+        <Link
+          onMouseEnter={handleIsActiveOn}
+          onMouseLeave={handleIsActiveOff}
+          to={`/${slug}`}
+        >
+          {item.title}
+        </Link>
+      )
+    }
   }
 
   return (
     <NavItem isActive={isActive} current={current}>
       {navItem}
+      {subMenu ? (
+        <HeaderNavItemSubMenu
+          isActive={isActive}
+          handleIsActiveOn={handleIsActiveOn}
+          handleIsActiveOff={handleIsActiveOff}
+          subItems={subMenu}
+        />
+      ) : null}
     </NavItem>
   )
 }

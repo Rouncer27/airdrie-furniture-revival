@@ -66,7 +66,7 @@ const BringOwn = () => {
     <BringOwnSection>
       <div className="wrapper">
         <div className="shopNow">
-          <a href="https://airdriefurniturerevival.swbcreative.ca/">Shop Now</a>
+          <a href="https://shop.airdriefurniturerevival.ca/">Shop Now</a>
           <div className="shopNow__paint">
             <GreenPaint />
           </div>
@@ -75,7 +75,7 @@ const BringOwn = () => {
           <h2>Want to bring your own furniture?</h2>
         </div>
         <div className="shopLearn">
-          <Link to="/">Learn More</Link>
+          <Link to="/how-it-works/byo-furniture">Learn More</Link>
         </div>
       </div>
     </BringOwnSection>
