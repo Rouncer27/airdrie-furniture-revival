@@ -90,7 +90,7 @@ const IntroSection = styled.section`
     }
 
     @media (min-width: 1025px) {
-      top: 29.5%;
+      top: calc(100% - (12rem));
       left: 16.5%;
       width: 20rem;
       height: 20rem;
