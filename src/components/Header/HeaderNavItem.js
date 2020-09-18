@@ -2,13 +2,28 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { createSlug } from "../../utils/helperFunc"
-import { Nav1CoolGrey, colors } from "../../styles/helpers"
+import { Nav1CoolGrey, colors, fonts } from "../../styles/helpers"
 
 import HeaderNavItemSubMenu from "./HeaderNavItemSubMenu"
 
 const NavItem = styled.li`
   position: relative;
   margin: 0 2rem;
+  padding-right: ${props => (props.subMenu ? "2rem" : "0")};
+
+  &::before {
+    font-family: ${fonts.fontAwesome};
+    display: ${props => (props.subMenu ? "block" : "none")};
+    position: absolute;
+    top: 50%;
+    right: 0rem;
+    transform: ${props =>
+      props.isActive ? "translateY(-50%) rotate(-90deg)" : "translateY(-50%) "};
+    transition: all 0.1s linear;
+    color: ${colors.colorTertiary};
+    content: "\f0d9";
+    opacity: 1;
+  }
 
   a,
   span {
@@ -97,7 +112,7 @@ const HeaderNavItem = ({ item, location }) => {
   }
 
   return (
-    <NavItem isActive={isActive} current={current}>
+    <NavItem isActive={isActive} current={current} subMenu={subMenu}>
       {navItem}
       {subMenu ? (
         <HeaderNavItemSubMenu

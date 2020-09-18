@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { colors } from "../../styles/helpers"
+import { colors, fonts } from "../../styles/helpers"
 
 import HeaderNavItemSubMenuItem from "./HeaderNavItemSubMenuItem"
 
@@ -10,7 +10,7 @@ const SubMenu = styled.div`
   position: absolute;
   top: calc(100%);
   left: -2rem;
-  width: 34rem;
+  width: 20rem;
   padding: 1rem 2rem;
   background-color: ${colors.white};
   border: solid 1px ${colors.colorTertiary};
@@ -19,6 +19,7 @@ const SubMenu = styled.div`
   visibility: ${props => (props.isActive ? "visible" : "hidden")};
 
   .subMenuWrap {
+    position: relative;
     display: block;
     border: solid 0 transparent;
   }
