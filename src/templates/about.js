@@ -26,9 +26,9 @@ const about = props => {
       <SEO title="About" />
       <Intro aboutIntro={aboutIntro} />
       <AboutDetails aboutDetails={aboutDetails} />
+      <NewsArticles newsArticles={newsArticles} />
       <Testimonials testimonials={testimonials} />
       <AsSeenOn asSeenOn={asSeenOn} />
-      <NewsArticles newsArticles={newsArticles} />
       <Showcase showcase={showcase} />
     </Layout>
   )

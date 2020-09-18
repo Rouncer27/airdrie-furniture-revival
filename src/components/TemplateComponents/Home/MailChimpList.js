@@ -86,7 +86,13 @@ const MailChimpList = ({ mailChimp }) => {
         <div className="chimpLink">
           <h2>Join our List</h2>
           <div>
-            <a href={mailchimpContent.options.afr_mailchimp_url}>Subscribe</a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={mailchimpContent.options.afr_mailchimp_url}
+            >
+              Subscribe
+            </a>
           </div>
         </div>
         <div className="chimpContent">

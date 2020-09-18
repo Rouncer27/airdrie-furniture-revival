@@ -83,7 +83,13 @@ const FooterList = () => {
           }}
         />
         <div className="listLink">
-          <a href={mailchimp.options.afr_mailchimp_url}>Subscribe</a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={mailchimp.options.afr_mailchimp_url}
+          >
+            Subscribe
+          </a>
         </div>
       </div>
     </FooterListSection>

@@ -9,6 +9,7 @@ const ShowcaseSection = styled.div`
     justify-content: center;
     width: calc(100% - 1.5rem);
     margin: auto;
+    margin-top: 1.5rem;
     margin-right: 0.75rem;
     margin-left: 0.75rem;
   }

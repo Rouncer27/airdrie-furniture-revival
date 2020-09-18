@@ -54,7 +54,9 @@ const NewsArticles = ({ newsArticles }) => {
             <LinkItem key={index}>
               <p>
                 <span>{link.content}</span> -{" "}
-                <a href={link.url}>{link.link_text}</a>
+                <a target="_blank" rel="noopener noreferrer" href={link.url}>
+                  {link.link_text}
+                </a>
               </p>
             </LinkItem>
           )
