@@ -22,7 +22,7 @@ const about = props => {
   } = props.data
   const location = props.location
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="About" />
       <Intro aboutIntro={aboutIntro} />
       <AboutDetails aboutDetails={aboutDetails} />

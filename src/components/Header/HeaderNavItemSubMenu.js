@@ -20,6 +20,7 @@ const SubMenu = styled.div`
 
   .subMenuWrap {
     display: block;
+    border: solid 0 transparent;
   }
 `
 
@@ -28,6 +29,8 @@ const HeaderNavItemSubMenu = ({
   handleIsActiveOn,
   handleIsActiveOff,
   subItems,
+  parentSlug,
+  location,
 }) => {
   return (
     <SubMenu
@@ -37,7 +40,12 @@ const HeaderNavItemSubMenu = ({
     >
       <ul className="subMenuWrap">
         {subItems.map(item => (
-          <HeaderNavItemSubMenuItem item={item} key={item.wordpress_id} />
+          <HeaderNavItemSubMenuItem
+            item={item}
+            parentSlug={parentSlug}
+            key={item.wordpress_id}
+            location={location}
+          />
         ))}
       </ul>
     </SubMenu>

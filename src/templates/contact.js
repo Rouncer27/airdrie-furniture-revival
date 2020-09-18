@@ -12,7 +12,7 @@ const contact = props => {
   const { contactIntro, testimonials, asSeenOn } = props.data
   const location = props.location
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="content" />
       <Intro contactIntro={contactIntro} />
       <Form />

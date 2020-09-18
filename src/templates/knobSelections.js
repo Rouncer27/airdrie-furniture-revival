@@ -10,7 +10,7 @@ const knobSelections = props => {
   const { intro, knobs } = props.data
   const location = props.location
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Knob Selections" />
       <Intro intro={intro} />
       <Knobs knobs={knobs} />

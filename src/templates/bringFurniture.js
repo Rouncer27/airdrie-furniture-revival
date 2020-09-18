@@ -10,7 +10,7 @@ const bringFurniture = props => {
   const { intro, points } = props.data
   const location = props.location
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Bring you own furniture" />
       <Intro intro={intro} />
       <Points points={points} />

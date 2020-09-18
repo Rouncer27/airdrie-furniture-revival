@@ -11,7 +11,7 @@ const howItWorks = props => {
   const { howItWorksIntro, steps } = props.data
   const location = props.location
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Home" />
       <Intro intro={howItWorksIntro} />
       <Steps steps={steps} />

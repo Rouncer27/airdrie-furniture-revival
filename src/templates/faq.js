@@ -9,7 +9,7 @@ const faq = props => {
   const { intro, faqs } = props.data
   const location = props.location
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Bring you own furniture" />
       <Intro intro={intro} />
       <Faqs faqs={faqs} />

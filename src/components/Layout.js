@@ -9,7 +9,7 @@ import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 import MobileNav from "./MobileNav/MobileNav"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header location={location} siteTitle={data.site.siteMetadata.title} />
         <MobileNav />
         <main>{children}</main>
         <Footer />

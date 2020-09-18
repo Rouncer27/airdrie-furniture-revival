@@ -25,7 +25,7 @@ const IndexPage = props => {
   } = props.data
   const location = props.location
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Home" />
       <Intro homeIntro={homeIntro} />
       <ClosedCrop closedCrop={closedCrop} />

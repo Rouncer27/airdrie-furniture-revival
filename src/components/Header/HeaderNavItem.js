@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { createSlug } from "../../utils/helperFunc"
-import { Nav1CoolGrey } from "../../styles/helpers"
+import { Nav1CoolGrey, colors } from "../../styles/helpers"
 
 import HeaderNavItemSubMenu from "./HeaderNavItemSubMenu"
 
@@ -13,6 +13,8 @@ const NavItem = styled.li`
   a,
   span {
     ${Nav1CoolGrey};
+    color: ${props =>
+      props.current ? colors.colorSecondary : colors.colorTertiary};
     text-transform: uppercase;
   }
 
@@ -87,6 +89,8 @@ const HeaderNavItem = ({ item, location }) => {
           handleIsActiveOn={handleIsActiveOn}
           handleIsActiveOff={handleIsActiveOff}
           subItems={subMenu}
+          parentSlug={slug}
+          location={location}
         />
       ) : null}
     </NavItem>
