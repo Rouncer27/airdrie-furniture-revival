@@ -243,7 +243,11 @@ const FooterNav = () => {
               (account, index) => {
                 return (
                   <li key={index} className={`social-icon-${account.type}`}>
-                    <a href={account.url} />
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={account.url}
+                    />
                   </li>
                 )
               }

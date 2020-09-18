@@ -38,16 +38,32 @@ const HeaderNavItem = ({ item, location }) => {
   }
 
   if (item.type === "custom") {
-    navItem = (
-      <a
-        href={item.url}
-        className="nolink"
-        onMouseEnter={handleIsActiveOn}
-        onMouseLeave={handleIsActiveOff}
-      >
-        {item.title}
-      </a>
-    )
+    const newBrowserWindow = item.target === "_blank" ? true : false
+    if (newBrowserWindow) {
+      navItem = (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={item.url}
+          className="nolink"
+          onMouseEnter={handleIsActiveOn}
+          onMouseLeave={handleIsActiveOff}
+        >
+          {item.title}
+        </a>
+      )
+    } else {
+      navItem = (
+        <a
+          href={item.url}
+          className="nolink"
+          onMouseEnter={handleIsActiveOn}
+          onMouseLeave={handleIsActiveOff}
+        >
+          {item.title}
+        </a>
+      )
+    }
   } else {
     if (item.url === "") {
       navItem = (
