@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { fontSizer, colors, fonts } from "../../styles/helpers"
+import { colors } from "../../styles/helpers"
 import { createSlug } from "../../utils/helperFunc"
 
 const SubItem = styled.li`
@@ -19,14 +19,17 @@ const SubItem = styled.li`
 `
 
 const HeaderNavItemSubMenuItem = ({ parentSlug, location, item }) => {
+  let link = null
   const slug = createSlug(item.url)
   const currentPage = location.pathname === `/${slug}`
 
-  return (
-    <SubItem currentPage={currentPage}>
-      <Link to={`/${slug}`}>{item.title}</Link>
-    </SubItem>
-  )
+  if (item.type === "custom") {
+    link = <a href={item.url}>{item.title}</a>
+  } else {
+    link = <Link to={`/${slug}`}>{item.title}</Link>
+  }
+
+  return <SubItem currentPage={currentPage}>{link}</SubItem>
 }
 
 export default HeaderNavItemSubMenuItem

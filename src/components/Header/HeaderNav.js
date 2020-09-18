@@ -13,13 +13,14 @@ const getData = graphql`
         object_slug
         target
         type
-        target
         url
         wordpress_children {
           wordpress_id
           title
           object_slug
           url
+          target
+          type
         }
       }
     }
