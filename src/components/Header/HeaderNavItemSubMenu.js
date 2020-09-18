@@ -10,7 +10,7 @@ const SubMenu = styled.div`
   position: absolute;
   top: calc(100%);
   left: -2rem;
-  width: 20rem;
+  width: 25rem;
   padding: 1rem 2rem;
   background-color: ${colors.white};
   border: solid 1px ${colors.colorTertiary};

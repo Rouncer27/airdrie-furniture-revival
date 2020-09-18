@@ -35,6 +35,7 @@ const PointsSection = styled.section`
       &--wysiwyg {
         p {
           ${B1DarkGrey};
+          margin-bottom: 1.6rem;
         }
       }
     }
