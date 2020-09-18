@@ -97,7 +97,7 @@ const Points = ({ points }) => {
             <h3>Ready to shop our pieces or customize your own?</h3>
           </div>
           <div className="pointsSide__link">
-            <a href="https://shop.airdriefurniturerevival.ca/">Show Now</a>
+            <a href="https://shop.airdriefurniturerevival.ca/">Shop Now</a>
           </div>
         </div>
       </div>
