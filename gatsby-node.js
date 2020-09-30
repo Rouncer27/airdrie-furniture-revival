@@ -14,6 +14,15 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        galleries: allWordpressWpGallery {
+          edges {
+            node {
+              slug
+              title
+              wordpress_id
+            }
+          }
+        }
       }
     `)
 
@@ -72,6 +81,14 @@ exports.createPages = async ({ graphql, actions }) => {
             id: node.wordpress_id,
           },
         })
+      } else if (node.template === "tpl-page-gallery.php") {
+        createPage({
+          path: `${node.path}`,
+          component: path.resolve(`./src/templates/gallery.js`),
+          context: {
+            id: node.wordpress_id,
+          },
+        })
       } else if (node.template === "tpl-page-home.php") {
         createPage({
           path: `/${node.slug}`,
@@ -89,6 +106,17 @@ exports.createPages = async ({ graphql, actions }) => {
           },
         })
       }
+    })
+
+    const galleries = data.galleries.edges
+    galleries.forEach(({ node }) => {
+      createPage({
+        path: `/how-it-works/gallery/${node.slug}`,
+        component: path.resolve(`./src/templates/singleGallery.js`),
+        context: {
+          id: node.wordpress_id,
+        },
+      })
     })
   } catch (err) {
     console.log("Error retrieving WordPress data", err)

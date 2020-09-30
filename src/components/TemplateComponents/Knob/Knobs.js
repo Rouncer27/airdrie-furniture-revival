@@ -23,7 +23,8 @@ const Knob = styled.div`
 
   h3 {
     ${B1DarkGrey};
-    text-transform: uppercase;
+    .knobName {
+    }
   }
 `
 
@@ -35,7 +36,10 @@ const Knobs = ({ knobs }) => {
           return (
             <Knob key={index}>
               <div>
-                <h3>{knob.name}</h3>
+                <h3>
+                  <span className="knobName">{knob.name}</span> -{" "}
+                  <span>{knob.price}</span>
+                </h3>
               </div>
               <div>
                 <Img

@@ -41,6 +41,7 @@ export const knobQuery = graphql`
       acf {
         _afr_knob_knobs {
           name
+          price
           image {
             alt_text
             localFile {
