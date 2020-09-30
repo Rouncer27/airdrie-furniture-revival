@@ -25,7 +25,7 @@ export const singleGalleryQuery = graphql`
           alt_text
           localFile {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 1000) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

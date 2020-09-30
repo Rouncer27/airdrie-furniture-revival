@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import { medWrapper, H2CoolGrey } from "../../../styles/helpers"
+import { medWrapper, H2CoolGrey, colors } from "../../../styles/helpers"
 import PaintBrush from "../../ClosedCropped/PaintBrush"
 
 const AsSeenOnSection = styled.section`
@@ -49,6 +49,9 @@ const AsSeenOnSection = styled.section`
     }
 
     &__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: calc(33.33% - 2em);
       margin: 1rem;
 
@@ -59,6 +62,23 @@ const AsSeenOnSection = styled.section`
 
       @media (min-width: 1025px) {
         width: calc(16.66% - 2em);
+      }
+
+      &--inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: ${colors.white};
+        border-radius: 1.5rem;
+
+        .gatsby-image-wrapper {
+          width: 100%;
+          img {
+            max-width: 100%;
+          }
+        }
       }
     }
   }
@@ -94,10 +114,12 @@ const AsSeenOn = ({ asSeenOn }) => {
           {asSeenOn.acf._afr_hoasnn_logos.map((logo, index) => {
             return (
               <div className="asSeenLogos__logo" key={index}>
-                <Img
-                  fluid={logo.logo.localFile.childImageSharp.fluid}
-                  alt={logo.logo.alt_text}
-                />
+                <div className="asSeenLogos__logo--inner">
+                  <Img
+                    fluid={logo.logo.localFile.childImageSharp.fluid}
+                    alt={logo.logo.alt_text}
+                  />
+                </div>
               </div>
             )
           })}

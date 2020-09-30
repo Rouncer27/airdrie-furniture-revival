@@ -34,7 +34,7 @@ const GalleriesList = ({ galleries }) => {
         {galleries.edges.map(gallery => {
           return (
             <GalleryStyled
-              to={`/how-it-works/gallery/${gallery.node.slug}`}
+              to={`/gallery/${gallery.node.slug}`}
               key={gallery.node.wordpress_id}
             >
               <div>

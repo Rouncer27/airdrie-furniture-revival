@@ -111,7 +111,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const galleries = data.galleries.edges
     galleries.forEach(({ node }) => {
       createPage({
-        path: `/how-it-works/gallery/${node.slug}`,
+        path: `/gallery/${node.slug}`,
         component: path.resolve(`./src/templates/singleGallery.js`),
         context: {
           id: node.wordpress_id,
