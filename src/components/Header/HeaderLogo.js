@@ -23,7 +23,6 @@ const getData = graphql`
 `
 
 const HeaderLogoWrap = styled.div`
-  align-self: center;
   width: 100%;
   padding: 2rem;
 
