@@ -89,7 +89,7 @@ const Gallery = ({ gallery }) => {
       </div>
       <div className="galleryLinks">
         <div className="galleryLinks__wrapper">
-          <Link to={`/how-it-works/gallery`}>Back to Gallery</Link>
+          <Link to={`/gallery`}>Back to Gallery</Link>
           <a href="https://shop.airdriefurniturerevival.ca/">Shop Now</a>
         </div>
       </div>
