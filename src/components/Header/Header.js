@@ -93,7 +93,6 @@ const HeaderStyled = styled.header`
 `
 
 const Header = ({ siteTitle, location }) => {
-  console.log({ location })
   useEffect(() => {
     const triggerElement = document.querySelector("#headerSection")
     const horseGraphic = triggerElement.querySelector(".horseGraphic")
