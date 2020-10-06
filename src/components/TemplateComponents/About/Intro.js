@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import BGImage from "gatsby-background-image"
@@ -8,6 +8,9 @@ import {
   H1DarkGrey,
   B1DarkGrey,
 } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const IntroSection = styled.section`
   position: relative;
@@ -174,8 +177,38 @@ const IntroSection = styled.section`
 `
 
 const Intro = ({ aboutIntro }) => {
+  useEffect(() => {
+    const triggerElement = document.querySelector("#introAbout")
+    const topImgLeft = triggerElement.querySelector(".introTop__imageLeft")
+    const topContent = triggerElement.querySelector(".introTop__content")
+    const topImgRight = triggerElement.querySelector(".introTop__imageRight")
+
+    const introIcon = triggerElement.querySelector(".introLogo")
+    const botContent = triggerElement.querySelector(".introBottom__imageLeft")
+    const botImg = triggerElement.querySelector(".introBottom__imageRight")
+
+    gsap.set(topImgLeft, { autoAlpha: 0, x: -150 })
+    gsap.set(topContent, { autoAlpha: 0, y: 150 })
+    gsap.set(topImgRight, { autoAlpha: 0, x: 150 })
+
+    gsap.set(botContent, { autoAlpha: 0, x: -150 })
+    gsap.set(botImg, { autoAlpha: 0, x: 150 })
+
+    gsap.set(introIcon, { autoAlpha: 0, scale: 2 })
+
+    gsap
+      .timeline()
+      .add("start")
+      .to(topImgLeft, { autoAlpha: 1, x: 0 }, "start")
+      .to(topImgRight, { autoAlpha: 1, x: 0 }, "start")
+      .to(topContent, { autoAlpha: 1, y: 0 }, "start")
+      .add("next")
+      .to(botContent, { autoAlpha: 1, x: 0 }, "next")
+      .to(botImg, { autoAlpha: 1, x: 0 }, "next")
+      .to(introIcon, { autoAlpha: 1, scale: 1 })
+  }, [])
   return (
-    <IntroSection>
+    <IntroSection id="introAbout">
       <div className="wrapper">
         <div className="introTop">
           <div className="introTop__imageLeft">

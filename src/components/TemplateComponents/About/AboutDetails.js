@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { medWrapper, B2CoolGrey, B1DarkGrey } from "../../../styles/helpers"
 
 import GreenPaint from "../../ClosedCropped/GreenPaint"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const AboutDetailsSection = styled.div`
   .wrapper {
@@ -82,6 +85,28 @@ const AboutDetailsSection = styled.div`
 `
 
 const AboutDetails = ({ aboutDetails }) => {
+  useEffect(() => {
+    const triggerElement = document.querySelector("#bioImages")
+    const images = [...triggerElement.querySelectorAll(".bioImages__image")]
+    gsap.set(images, { autoAlpha: 0, y: 150 })
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          markers: true,
+          start: "top 55%",
+          toggleActions: "play none none none",
+        },
+      })
+      .to(images, {
+        autoAlpha: 1,
+        y: 0,
+        stagger: {
+          each: 0.25,
+          from: "center",
+        },
+      })
+  }, [])
   return (
     <AboutDetailsSection>
       <div className="wrapper">
@@ -99,7 +124,7 @@ const AboutDetails = ({ aboutDetails }) => {
             }}
           />
         </div>
-        <div className="bioImages">
+        <div id="bioImages" className="bioImages">
           <div className="bioImages__image">
             <Img
               fluid={
