@@ -178,6 +178,10 @@ const FooterNavSection = styled.div`
             width: 4rem;
             height: 4rem;
           }
+
+          &:hover {
+            fill: ${colors.colorSecondary};
+          }
         }
       }
     }
