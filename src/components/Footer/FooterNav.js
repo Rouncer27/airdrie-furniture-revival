@@ -11,6 +11,9 @@ import {
 } from "../../styles/helpers"
 
 import FooterCopy from "./FooterCopy"
+import IconFacebook from "../Icons/IconFacebook"
+import IconInstagram from "../Icons/IconInstagram"
+import IconPintrest from "../Icons/IconPintrest"
 
 const getData = graphql`
   {
@@ -150,49 +153,36 @@ const FooterNavSection = styled.div`
         width: 5rem;
         height: 5rem;
         border-radius: 50%;
-        background-color: ${colors.colorPrimary};
 
         @media (min-width: 768px) {
+          width: 3rem;
+          height: 3rem;
+        }
+        @media (min-width: 1025px) {
           width: 4rem;
           height: 4rem;
         }
-        @media (min-width: 1025px) {
+
+        svg {
+          display: block;
           width: 5rem;
           height: 5rem;
-        }
+          margin: auto;
+          fill: ${colors.colorPrimary};
 
-        &::after {
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: ${colors.white};
-          font-family: ${fonts.fontAwesome};
-          font-size: 2.8rem;
-          content: "";
-        }
-
-        @media (min-width: 768px) {
-          &::after {
-            font-size: 2rem;
+          @media (min-width: 768px) {
+            width: 3rem;
+            height: 3rem;
           }
-        }
-
-        @media (min-width: 1025px) {
-          &::after {
-            font-size: 2.8rem;
-          }
+          @media (min-width: 1025px) {
+            width: 4rem;
+            height: 4rem;
         }
       }
     }
 
     li.social-icon-facebook {
       a {
-        &::after {
-          content: "\f230";
-        }
-
         &:hover {
           background-color: #3b5998;
         }
@@ -200,9 +190,6 @@ const FooterNavSection = styled.div`
     }
     li.social-icon-instagram {
       a {
-        &::after {
-          content: "\f16d";
-        }
         &:hover {
           background-color: #3f729b;
         }
@@ -210,9 +197,6 @@ const FooterNavSection = styled.div`
     }
     li.social-icon-pintrest {
       a {
-        &::after {
-          content: "\f231";
-        }
         &:hover {
           background-color: #e60023;
         }
@@ -241,13 +225,24 @@ const FooterNav = () => {
             <p>See us on Social</p>
             {footerLogo.options.afr_social_media_accounts.map(
               (account, index) => {
+                let socialIcon
+                if (account.type === "instagram") {
+                  socialIcon = <IconInstagram />
+                } else if (account.type === "facebook") {
+                  socialIcon = <IconFacebook />
+                } else if (account.type === "pintrest") {
+                  socialIcon = <IconPintrest />
+                }
+                console.log({ account })
                 return (
                   <li key={index} className={`social-icon-${account.type}`}>
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
                       href={account.url}
-                    />
+                    >
+                      {socialIcon}
+                    </a>
                   </li>
                 )
               }
