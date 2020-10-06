@@ -177,28 +177,7 @@ const FooterNavSection = styled.div`
           @media (min-width: 1025px) {
             width: 4rem;
             height: 4rem;
-        }
-      }
-    }
-
-    li.social-icon-facebook {
-      a {
-        &:hover {
-          background-color: #3b5998;
-        }
-      }
-    }
-    li.social-icon-instagram {
-      a {
-        &:hover {
-          background-color: #3f729b;
-        }
-      }
-    }
-    li.social-icon-pintrest {
-      a {
-        &:hover {
-          background-color: #e60023;
+          }
         }
       }
     }
