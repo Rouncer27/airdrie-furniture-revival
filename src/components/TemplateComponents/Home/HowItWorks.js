@@ -117,7 +117,6 @@ const HowItWorks = ({ howItWorks }) => {
 
     const steps = [...triggerElement.querySelectorAll(".howStep")]
     const howLink = triggerElement.querySelector(".howLink")
-    console.log({ steps })
 
     gsap.set(steps, { autoAlpha: 0, y: 150 })
     gsap.set(howLink, { autoAlpha: 0 })
