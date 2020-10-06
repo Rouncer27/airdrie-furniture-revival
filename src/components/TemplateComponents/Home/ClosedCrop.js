@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { standardWrapper, B2DarkGrey } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 import GreenPlant from "../../ClosedCropped/GreenPlant"
 import Globe from "../../ClosedCropped/Globe"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ClosedCropSection = styled.section`
   position: relative;
@@ -88,8 +92,67 @@ const ClosedCropSection = styled.section`
 `
 
 const ClosedCrop = ({ closedCrop }) => {
+  useEffect(() => {
+    const triggerElement = document.querySelector("#closedCropped")
+    const closeContent = triggerElement.querySelector(".closeContent")
+    const closedPlant = triggerElement.querySelector(".closedPlant")
+    const closedGlobe = triggerElement.querySelector(".closedGlobe")
+
+    gsap.set(closeContent, { autoAlpha: 0, y: 100 })
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          markers: false,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      })
+      .to(
+        closeContent,
+        {
+          autoAlpha: 1,
+          y: 0,
+        },
+        "start"
+      )
+
+    gsap.set(closedPlant, { autoAlpha: 0, x: -150 })
+    gsap.set(closedGlobe, { autoAlpha: 0, x: 150 })
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          markers: false,
+          start: "top 75%",
+          end: "top 15%",
+          scrub: true,
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .to(
+        closedPlant,
+        {
+          autoAlpha: 1,
+          x: 0,
+        },
+        "start"
+      )
+      .to(
+        closedGlobe,
+        {
+          autoAlpha: 1,
+          x: 0,
+        },
+        "start"
+      )
+  }, [])
+
   return (
-    <ClosedCropSection>
+    <ClosedCropSection id="closedCropped">
       <div className="wrapper">
         <div
           className="closeContent"

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import BGImage from "gatsby-background-image"
@@ -11,6 +11,9 @@ import {
   B2DarkGrey,
   Btn1DarkGrey,
 } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const ShopNowSection = styled.section`
   position: relative;
@@ -123,17 +126,76 @@ const ShopNowSection = styled.section`
 `
 
 const ShopNow = ({ shopNow }) => {
+  useEffect(() => {
+    const triggerElement = document.querySelector("#showNowSec")
+    const shopTitle = triggerElement.querySelector(".shopContent__title")
+    const shopPara = triggerElement.querySelector(".shopContent__para")
+    const shopLink = triggerElement.querySelector(".shopContent__link")
+    const shopChair = triggerElement.querySelector(".closedChair")
+    const shopTop = triggerElement.querySelector(".shopImages__top")
+    const shopBot = triggerElement.querySelector(".shopImages__bottom")
+
+    gsap.set(shopTop, { autoAlpha: 0, x: 200 })
+    gsap.set(shopBot, { autoAlpha: 0, x: 400 })
+
+    gsap.set(shopTitle, { autoAlpha: 0, y: 100 })
+    gsap.set(shopPara, { autoAlpha: 0, y: 100 })
+    gsap.set(shopLink, { autoAlpha: 0, y: 100 })
+    gsap.set(shopChair, { autoAlpha: 0, x: -100 })
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          markers: false,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .to([shopTitle, shopPara, shopLink], {
+        autoAlpha: 1,
+        y: 0,
+        duration: 1,
+        stagger: {
+          each: 0.25,
+        },
+      })
+      .to(
+        [shopChair],
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 1,
+        },
+        "-=0.75"
+      )
+      .to(
+        [shopTop, shopBot],
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 1,
+          stagger: {
+            each: 0.25,
+          },
+        },
+        "start+=0.5"
+      )
+  }, [])
+
   return (
-    <ShopNowSection>
+    <ShopNowSection id="showNowSec">
       <div className="wrapper">
         <div className="shopContent">
-          <div>
+          <div className="shopContent__title">
             <h2>{shopNow.acf._afr_hosns_title}</h2>
           </div>
           <div
+            className="shopContent__para"
             dangerouslySetInnerHTML={{ __html: shopNow.acf._afr_hosns_content }}
           />
-          <div>
+          <div className="shopContent__link">
             <a href={shopNow.acf._afr_hosns_link_url}>Shop Now</a>
           </div>
         </div>

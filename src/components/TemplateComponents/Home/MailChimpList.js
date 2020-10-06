@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import {
@@ -8,6 +8,9 @@ import {
   H1DarkGrey,
   Btn1DarkGrey,
 } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const getData = graphql`
   {
@@ -80,8 +83,43 @@ const MailChimpList = ({ mailChimp }) => {
   const data = useStaticQuery(getData)
   const { mailchimpContent } = data
 
+  useEffect(() => {
+    const triggerElement = document.querySelector("#mailchimpSec")
+    const chimpLink = triggerElement.querySelector(".chimpLink")
+    const chimpContent = triggerElement.querySelector(".chimpContent")
+
+    gsap.set(chimpLink, { autoAlpha: 0, x: -150 })
+    gsap.set(chimpContent, { autoAlpha: 0, x: 150 })
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          markers: false,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      })
+      .to(
+        chimpLink,
+        {
+          autoAlpha: 1,
+          x: 0,
+        },
+        "start"
+      )
+      .to(
+        chimpContent,
+        {
+          autoAlpha: 1,
+          x: 0,
+        },
+        "start"
+      )
+  }, [])
+
   const mailChimpContent = mailChimp.acf._acf_mailchimp_list ? (
-    <MailChimpListSection>
+    <MailChimpListSection id="mailchimpSec">
       <div className="wrapper">
         <div className="chimpLink">
           <h2>Join our List</h2>

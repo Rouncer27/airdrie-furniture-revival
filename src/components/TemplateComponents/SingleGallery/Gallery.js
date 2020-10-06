@@ -5,7 +5,6 @@ import {
   Btn1DarkGrey,
   colors,
   H1White,
-  medWrapper,
   standardWrapper,
 } from "../../../styles/helpers"
 import { Link } from "gatsby"
@@ -56,6 +55,10 @@ const GalleryImage = styled.div`
   }
   @media (min-width: 1025px) {
     width: calc(33.33% - 4rem);
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `
 
