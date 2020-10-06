@@ -6,8 +6,8 @@ const FontAwesome = `
   font-style: normal;
   font-weight: normal;
   src: 
-    url('${fontawesome.FontAwesomeWOFF}') format("woff2"),
-    url('${fontawesome.FontAwesomeWOFF2}') format("woff");
+    url('${fontawesome.FontAwesomeWOFF2}') format("woff")
+    url('${fontawesome.FontAwesomeWOFF}') format("woff2");
 }
 `
 
