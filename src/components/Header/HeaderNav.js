@@ -31,13 +31,13 @@ const HeaderNavStyled = styled.nav`
   display: none;
   align-self: center;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   padding: 0 2rem;
 
   @media (min-width: 768px) {
     display: block;
     width: auto;
-    margin: 2rem auto;
+    margin: 2rem;
   }
 
   ul {
