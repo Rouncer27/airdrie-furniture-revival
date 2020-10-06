@@ -82,11 +82,7 @@ const MobileNavDrawer = ({ isOpen, location }) => {
       <div className="wrapper">
         <MobileNavLogo mainLogo={mainLogo} />
         {menuItems.map(item => (
-          <MobileNavItem
-            location={location}
-            key={item.object_slug}
-            item={item}
-          />
+          <div></div>
         ))}
       </div>
     </NavDrawer>
