@@ -12,8 +12,12 @@ import {
 const IntroSection = styled.section`
   position: relative;
   margin-top: 5rem;
-  margin-bottom: 10rem;
+  margin-bottom: 0;
   z-index: 10;
+
+  @media (min-width: 768px) {
+    margin-bottom: 10rem;
+  }
 
   .wrapper {
     ${medWrapperMobile};
@@ -29,9 +33,13 @@ const IntroSection = styled.section`
     margin-bottom: 2.5rem;
 
     &__imageLeft {
-      width: calc(25% - 2.5rem);
+      width: calc(100%);
       min-height: 30rem;
-      margin-right: 2.5rem;
+
+      @media (min-width: 768px) {
+        width: calc(25% - 2.5rem);
+        margin-right: 2.5rem;
+      }
 
       div {
         width: 100%;
@@ -44,8 +52,12 @@ const IntroSection = styled.section`
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
-      width: 50%;
+      width: calc(100%);
       background-color: ${colors.colorTertiary};
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
 
       &--inner {
         width: 100%;
@@ -62,9 +74,14 @@ const IntroSection = styled.section`
     }
 
     &__imageRight {
-      width: calc(25% - 2.5rem);
-      min-height: 30rem;
-      margin-left: 2.5rem;
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
+        width: calc(25% - 2.5rem);
+        min-height: 30rem;
+        margin-left: 2.5rem;
+      }
 
       div {
         width: 100%;

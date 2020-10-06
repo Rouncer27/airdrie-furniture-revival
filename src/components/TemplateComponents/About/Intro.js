@@ -40,7 +40,7 @@ const IntroSection = styled.section`
 
     &__imageLeft {
       width: calc(100%);
-      min-height: 55rem;
+      min-height: 40rem;
 
       @media (min-width: 768px) {
         width: calc(33.33%);
@@ -53,8 +53,10 @@ const IntroSection = styled.section`
       }
 
       div {
-        width: 100%;
-        height: 100%;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 40rem;
+        opacity: 1 !important;
       }
     }
 
