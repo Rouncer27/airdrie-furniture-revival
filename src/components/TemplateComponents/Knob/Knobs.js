@@ -1,30 +1,32 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import { standardWrapper, B1DarkGrey } from "../../../styles/helpers"
+import { BigWrapper, B4DarkGrey } from "../../../styles/helpers"
 
 const KnobsSection = styled.section`
   .wrapper {
-    ${standardWrapper};
+    ${BigWrapper};
     justify-content: flex-start;
   }
 `
 
 const Knob = styled.div`
-  width: calc(50% - 4rem);
+  width: calc(100% - 4rem);
   margin: 2rem;
 
   @media (min-width: 768px) {
     width: calc(33.33% - 4rem);
   }
   @media (min-width: 1025px) {
-    width: calc(33.33% - 4rem);
+    width: calc(25% - 4rem);
+  }
+
+  @media (min-width: 1500px) {
+    width: calc(20% - 4rem);
   }
 
   h3 {
-    ${B1DarkGrey};
-    .knobName {
-    }
+    ${B4DarkGrey};
   }
 `
 

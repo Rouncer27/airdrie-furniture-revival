@@ -64,3 +64,19 @@ export const B3DarkGrey = `
   ${B3Base};
   color: ${colors.greyBrown};
 `
+
+// Body copy FOUR //
+export const B4Base = `
+  ${fontSizer(1.2, 1.6, 76.8, 150, 1.8)};
+  font-family: ${fonts.fontPrimary};
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+`
+
+export const B4DarkGrey = `
+  ${B4Base};
+  color: ${colors.greyBrown};
+`

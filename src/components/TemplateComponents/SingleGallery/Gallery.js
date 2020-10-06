@@ -6,6 +6,8 @@ import {
   colors,
   H1White,
   standardWrapper,
+  fonts,
+  fontSizer,
 } from "../../../styles/helpers"
 import { Link } from "gatsby"
 import GallerySlider from "./GallerySlider"
@@ -47,6 +49,8 @@ const GalleryStyled = styled.section`
 `
 
 const GalleryImage = styled.div`
+  position: relative;
+  overflow: hidden;
   width: calc(50% - 4rem);
   margin: 2rem;
 
@@ -57,8 +61,41 @@ const GalleryImage = styled.div`
     width: calc(33.33% - 4rem);
   }
 
+  &::before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 0.4s ease-out;
+    transform: translate(500%, -50%);
+    color: ${colors.white};
+    font-family: ${fonts.fontAwesome};
+    font-size: ${fontSizer(3, 5, 76.8, 150, 7)};
+    content: "\f002";
+    z-index: 10;
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.25s ease-out;
+    background-color: rgba(238, 157, 134, 0.5);
+    content: "";
+    opacity: 0;
+  }
+
   &:hover {
     cursor: pointer;
+    &::before {
+      transform: translate(-50%, -50%);
+    }
+    &::after {
+      opacity: 1;
+    }
   }
 `
 
