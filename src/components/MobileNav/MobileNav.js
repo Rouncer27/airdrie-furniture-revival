@@ -12,7 +12,6 @@ const MobileNav = ({ location }) => {
   return (
     <>
       <MobileNavButton toggleDrawer={handleToggleDrawer} isOpen={isOpen} />
-      <MobileNavDrawer location={location} isOpen={isOpen} />
     </>
   )
 }
