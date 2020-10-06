@@ -1,12 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import {
-  H1DarkGrey,
-  B1DarkGrey,
-  medWrapper,
-  Btn1DarkGrey,
-} from "../../../styles/helpers"
+import { H1DarkGrey, medWrapper, Btn1DarkGrey } from "../../../styles/helpers"
+
+import Faq from "./Faq"
 
 const PointsSection = styled.section`
   padding-top: 5rem;
@@ -21,22 +18,6 @@ const PointsSection = styled.section`
     width: calc(100%);
     @media (min-width: 768px) {
       width: calc(65%);
-    }
-
-    &__item {
-      padding-bottom: 1rem;
-
-      &--title {
-        h2 {
-          ${H1DarkGrey};
-        }
-      }
-
-      &--wysiwyg {
-        p {
-          ${B1DarkGrey};
-        }
-      }
     }
   }
 
@@ -69,17 +50,7 @@ const Faqs = ({ faqs }) => {
       <div className="wrapper">
         <div className="pointsSec">
           {faqs.acf._afr_faqs_info_points.map((point, index) => {
-            return (
-              <div className="pointsSec__item" key={index}>
-                <div className="pointsSec__item--title">
-                  <h2>{point.question}</h2>
-                </div>
-                <div
-                  className="pointsSec__item--wysiwyg"
-                  dangerouslySetInnerHTML={{ __html: point.answer }}
-                />
-              </div>
-            )
+            return <Faq key={index} point={point} />
           })}
         </div>
         <div className="pointsSide">
