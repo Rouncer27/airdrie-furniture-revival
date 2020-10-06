@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import BGImg from "gatsby-background-image"
 import { medWrapper, B2DarkGrey } from "../../../styles/helpers"
 import IconOpen from "../../Icons/IconOpen"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const IntroSection = styled.section`
   padding-top: 1rem;
@@ -31,13 +34,16 @@ const IntroSection = styled.section`
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
-      width: calc(40% - 2.5rem);
+      width: calc(100% - 2.5rem);
       margin-right: 2.5rem;
-      height: 100%;
+      margin-bottom: 2rem;
+      height: 25rem;
 
       @media (min-width: 768px) {
         width: calc(25%);
+        height: 100%;
         margin-right: 0;
+        margin-bottom: 0;
       }
 
       @media (min-width: 1025px) {
@@ -51,7 +57,7 @@ const IntroSection = styled.section`
     }
 
     &__center {
-      width: calc(60%);
+      width: calc(100%);
       height: 30rem;
 
       @media (min-width: 768px) {
@@ -99,8 +105,18 @@ const IntroSection = styled.section`
 `
 
 const Intro = ({ intro }) => {
+  useEffect(() => {
+    const triggerElement = document.querySelector("#howIntro")
+    const openIcon = triggerElement.querySelector(".introImages__left--inner")
+
+    gsap.set(openIcon, { transformOrigin: "top center", rotation: "10deg" })
+
+    gsap
+      .timeline({ repeat: -1, yoyo: true })
+      .to(openIcon, { duration: 2.5, rotation: "-15deg", ease: "power1.inOut" })
+  }, [])
   return (
-    <IntroSection>
+    <IntroSection id="howIntro">
       <div className="wrapper">
         <div className="introImages">
           <div className="introImages__left">
