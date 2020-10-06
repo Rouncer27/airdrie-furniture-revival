@@ -93,65 +93,67 @@ const HeaderStyled = styled.header`
 `
 
 const Header = ({ siteTitle, location }) => {
+  console.log({ location })
   useEffect(() => {
     const triggerElement = document.querySelector("#headerSection")
     const horseGraphic = triggerElement.querySelector(".horseGraphic")
     const flowerGraphic = triggerElement.querySelector(".flowersGraphic")
-
-    gsap.set(horseGraphic, {
-      autoAlpha: 1,
-      y: -235,
-      x: 10,
-      rotate: "-30deg",
-      transformOrigin: "center top",
-    })
-    gsap.set(flowerGraphic, {
-      autoAlpha: 0,
-      y: 0,
-      x: 300,
-      transformOrigin: "center top",
-    })
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: triggerElement,
-          markers: false,
-          start: "top 100%",
-          toggleActions: "play none none none",
-        },
+    if (location.pathname === "/") {
+      gsap.set(horseGraphic, {
+        autoAlpha: 1,
+        y: -235,
+        x: 10,
+        rotate: "-30deg",
+        transformOrigin: "center top",
       })
-      .add("start")
-      .to(
-        horseGraphic,
-        {
-          autoAlpha: 1,
-          y: -50,
-          x: 0,
-          rotate: "0deg",
-          duration: 2,
-          ease: "back.out(1.7)",
-        },
-        "start"
-      )
-      .to(horseGraphic, {
+      gsap.set(flowerGraphic, {
+        autoAlpha: 0,
         y: 0,
-        x: 0,
-        rotate: "0deg",
-        duration: 1.75,
-        ease: "power2.out",
+        x: 300,
+        transformOrigin: "center top",
       })
-      .to(
-        flowerGraphic,
-        {
-          autoAlpha: 1,
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: triggerElement,
+            markers: false,
+            start: "top 100%",
+            toggleActions: "play none none none",
+          },
+        })
+        .add("start")
+        .to(
+          horseGraphic,
+          {
+            autoAlpha: 1,
+            y: -50,
+            x: 0,
+            rotate: "0deg",
+            duration: 2,
+            ease: "back.out(1.7)",
+          },
+          "start"
+        )
+        .to(horseGraphic, {
           y: 0,
           x: 0,
-          duration: 1,
+          rotate: "0deg",
+          duration: 1.75,
           ease: "power2.out",
-        },
-        "start"
-      )
+        })
+        .to(
+          flowerGraphic,
+          {
+            autoAlpha: 1,
+            y: 0,
+            x: 0,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "start"
+        )
+    }
 
     // gsap
     //   .timeline({
