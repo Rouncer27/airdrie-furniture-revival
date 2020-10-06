@@ -93,7 +93,7 @@ const AboutDetails = ({ aboutDetails }) => {
       .timeline({
         scrollTrigger: {
           trigger: triggerElement,
-          markers: true,
+          markers: false,
           start: "top 55%",
           toggleActions: "play none none none",
         },
