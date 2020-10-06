@@ -100,12 +100,14 @@ const TestSection = styled.section`
     bottom: 0;
     left: -5rem;
     width: 15rem;
+    opacity: 0.25;
     z-index: -1;
 
     @media (min-width: 768px) {
       bottom: 0;
       left: 5rem;
       width: 20rem;
+      opacity: 1;
     }
   }
 `

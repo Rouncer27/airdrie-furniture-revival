@@ -52,7 +52,7 @@ const AsSeenOnSection = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: calc(33.33% - 2em);
+      width: calc(50% - 2em);
       margin: 1rem;
 
       @media (min-width: 768px) {
