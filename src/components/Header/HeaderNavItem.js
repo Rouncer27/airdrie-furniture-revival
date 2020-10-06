@@ -12,20 +12,18 @@ const NavItem = styled.li`
   padding-right: ${props => (props.subMenu ? "2rem" : "0")};
 
   ${"" /* &::before {
-      font-family: ${fonts.fontAwesome};
-      display: ${props => (props.subMenu ? "block" : "none")};
-      position: absolute;
-      top: 50%;
-      right: 0rem;
-      transform: ${props =>
-        props.isActive
-          ? "translateY(-50%) rotate(-90deg)"
-          : "translateY(-50%) "};
-      transition: all 0.1s linear;
-      color: ${colors.colorTertiary};
-      content: "\f0d9";
-      opacity: 1;
-    } */}
+    font-family: ${fonts.fontAwesome};
+    display: ${props => (props.subMenu ? "block" : "none")};
+    position: absolute;
+    top: 50%;
+    right: 0rem;
+    transform: ${props =>
+      props.isActive ? "translateY(-50%) rotate(-90deg)" : "translateY(-50%) "};
+    transition: all 0.1s linear;
+    color: ${colors.colorTertiary};
+    content: "\f0d9";
+    opacity: 1;
+  } */}
 
   a,
   span {
