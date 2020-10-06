@@ -1,10 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import {
   medWrapper,
   H2CoolGrey,
-  colors,
   H1DarkGrey,
   B1DarkGrey,
   Btn1DarkGrey,
@@ -13,6 +12,9 @@ import {
 import IconBrush from "../../Icons/IconBrush"
 import IconCart from "../../Icons/IconCart"
 import IconDesk from "../../Icons/IconDesk"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const HowItWorksSection = styled.section`
   background-color: rgba(244, 212, 210, 0.4);
@@ -28,6 +30,10 @@ const HowItWorksSection = styled.section`
 
     h2 {
       ${H2CoolGrey};
+
+      span {
+        display: inline-block;
+      }
     }
   }
 
@@ -103,11 +109,74 @@ const HowItWorksSection = styled.section`
 `
 
 const HowItWorks = ({ howItWorks }) => {
+  useEffect(() => {
+    const triggerElement = document.querySelector("#howItWorksSec")
+    const titleLetter = [
+      ...triggerElement.querySelectorAll(".howTitle h2 span"),
+    ]
+
+    const steps = [...triggerElement.querySelectorAll(".howStep")]
+    const howLink = triggerElement.querySelector(".howLink")
+    console.log({ steps })
+
+    gsap.set(steps, { autoAlpha: 0, y: 150 })
+    gsap.set(howLink, { autoAlpha: 0 })
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          markers: false,
+          start: "top 45%",
+          toggleActions: "play none none none",
+        },
+      })
+      .to(steps, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 1,
+        ease: "power4.out",
+        stagger: {
+          each: 0.5,
+        },
+      })
+      .to(howLink, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 2,
+        ease: "power4.out",
+      })
+
+    gsap.set(titleLetter, { autoAlpha: 0, y: -30 })
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          markers: false,
+          start: "top 45%",
+          toggleActions: "play none none none",
+        },
+      })
+      .to(titleLetter, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.75,
+        ease: "power4.out",
+        stagger: {
+          each: 0.1,
+        },
+      })
+  }, [])
+  const newTitle = "How It Works".split("")
   return (
-    <HowItWorksSection>
+    <HowItWorksSection id="howItWorksSec">
       <div className="wrapper">
         <div className="howTitle">
-          <h2>How It Works</h2>
+          <h2>
+            {" "}
+            {newTitle.map((letter, index) => {
+              return letter !== " " ? <span key={index}>{letter}</span> : " "
+            })}
+          </h2>
         </div>
         <div className="howStep howStepOne">
           <div className="howStepIcon">

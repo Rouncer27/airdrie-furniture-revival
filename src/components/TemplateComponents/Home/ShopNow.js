@@ -136,7 +136,7 @@ const ShopNow = ({ shopNow }) => {
     const shopBot = triggerElement.querySelector(".shopImages__bottom")
 
     gsap.set(shopTop, { autoAlpha: 0, x: 200 })
-    gsap.set(shopBot, { autoAlpha: 0, x: 400 })
+    gsap.set(shopBot, { autoAlpha: 0, y: 300 })
 
     gsap.set(shopTitle, { autoAlpha: 0, y: 100 })
     gsap.set(shopPara, { autoAlpha: 0, y: 100 })
@@ -175,6 +175,7 @@ const ShopNow = ({ shopNow }) => {
         {
           autoAlpha: 1,
           x: 0,
+          y: 0,
           duration: 1,
           stagger: {
             each: 0.25,
