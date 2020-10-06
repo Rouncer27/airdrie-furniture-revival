@@ -5,6 +5,9 @@ import { medWrapper, Btn1DarkGrey } from "../../../styles/helpers"
 
 import FormInput from "../../Form/FormInput"
 import FormTextarea from "../../Form/FormTextarea"
+import FormSuccess from "../../Modals/FormSuccess"
+import FormSubmit from "../../Modals/FormSubmit"
+import FormErrors from "../../Modals/FormErrors"
 
 const ContactFormSection = styled.section`
   position: relative;
@@ -39,10 +42,11 @@ const submitToWebServer = async (formID, data) => {
   const FORM_POST_URL = `http://airdriefurniturerevival.swbcreative.ca/wp-json/contact-form-7/v1/contact-forms/${formID}/feedback`
   const config = { headers: { "Content-Type": "multipart/form-data" } }
   const serverResponse = await axios.post(FORM_POST_URL, data, config)
+
   if (serverResponse.data.status === "mail_sent") {
     return { errors: false, errorMessages: [] }
   } else {
-    return { errors: true, errorMessages: serverResponse.data.invalidFields }
+    return { errors: true, errorMessages: serverResponse.data.invalid_fields }
   }
 }
 
@@ -114,6 +118,9 @@ const Form = () => {
     setFormFeilds({})
   }
 
+  console.log({ formStatus })
+  console.log({ formField })
+
   const errors = formStatus.errors
   return (
     <ContactFormSection>
@@ -125,7 +132,7 @@ const Form = () => {
               name="fullName"
               id="fullName"
               type="text"
-              required={true}
+              required={false}
               errors={errors}
               value={formField.fullName ? formField.fullName : ""}
               handleOnChange={handleFieldChange}
@@ -135,7 +142,7 @@ const Form = () => {
               name="emailaddress"
               id="emailaddress"
               type="email"
-              required={true}
+              required={false}
               errors={errors}
               value={formField.emailaddress ? formField.emailaddress : ""}
               handleOnChange={handleFieldChange}
@@ -145,7 +152,7 @@ const Form = () => {
               name="phonenumber"
               id="phonenumber"
               type="text"
-              required={true}
+              required={false}
               errors={errors}
               value={formField.phonenumber ? formField.phonenumber : ""}
               handleOnChange={handleFieldChange}
@@ -154,7 +161,7 @@ const Form = () => {
               label="Comment"
               name="comment"
               id="comment"
-              required={true}
+              required={false}
               rows={12}
               errors={errors}
               value={formField.comment ? formField.comment : ""}
@@ -166,6 +173,15 @@ const Form = () => {
           </form>
         </div>
       </div>
+      <FormSubmit isActive={formStatus.submitting} />
+      <FormSuccess
+        isActive={formStatus.success}
+        handleClose={handleSuccessModalClose}
+      />
+      <FormErrors
+        isActive={formStatus.errorWarnDisplay}
+        handleClose={handleErrorModalClose}
+      />
     </ContactFormSection>
   )
 }

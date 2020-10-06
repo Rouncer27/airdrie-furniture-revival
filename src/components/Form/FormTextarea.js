@@ -12,7 +12,7 @@ const TextareaStyled = styled.div`
 
   .errorMessage {
     position: absolute;
-    top: 2.5rem;
+    top: 1.5rem;
     right: 0;
     width: 100%;
     text-align: right;
