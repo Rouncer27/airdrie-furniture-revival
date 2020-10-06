@@ -16,6 +16,12 @@ const getData = graphql`
         target
         type
         url
+        wordpress_children {
+          wordpress_id
+          title
+          object_slug
+          url
+        }
       }
     }
 
@@ -67,7 +73,7 @@ const NavDrawer = styled.div`
   }
 `
 
-const MobileNavDrawer = ({ isOpen }) => {
+const MobileNavDrawer = ({ isOpen, location }) => {
   const data = useStaticQuery(getData)
   const menuItems = data.mobileMenu.items
   const { mainLogo } = data
@@ -76,7 +82,11 @@ const MobileNavDrawer = ({ isOpen }) => {
       <div className="wrapper">
         <MobileNavLogo mainLogo={mainLogo} />
         {menuItems.map(item => (
-          <MobileNavItem key={item.object_slug} item={item} />
+          <MobileNavItem
+            location={location}
+            key={item.object_slug}
+            item={item}
+          />
         ))}
       </div>
     </NavDrawer>

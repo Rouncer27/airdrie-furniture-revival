@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import MobileNavButton from "./MobileNavButton"
 import MobileNavDrawer from "./MobileNavDrawer"
 
-const MobileNav = () => {
+const MobileNav = ({ location }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleToggleDrawer = () => {
@@ -12,7 +12,7 @@ const MobileNav = () => {
   return (
     <>
       <MobileNavButton toggleDrawer={handleToggleDrawer} isOpen={isOpen} />
-      <MobileNavDrawer isOpen={isOpen} />
+      <MobileNavDrawer location={location} isOpen={isOpen} />
     </>
   )
 }
