@@ -42,7 +42,7 @@ const GalleryStyled = styled(Link)`
       top: 50%;
       left: 50%;
       transition: all 0.4s ease-out;
-      transform: translate(500%, -50%);
+      transform: translate(1200%, -50%);
       color: ${colors.white};
       font-family: ${fonts.fontAwesome};
       font-size: ${fontSizer(3, 5, 76.8, 150, 7)};
