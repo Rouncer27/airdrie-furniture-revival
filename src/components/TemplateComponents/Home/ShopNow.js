@@ -95,13 +95,17 @@ const ShopNowSection = styled.section`
 
     &__bottom {
       position: absolute;
-      bottom: calc(-50% + 10rem);
+      bottom: calc(-50%);
       left: calc(50% - (20rem / 2));
       width: 20rem;
       height: 20rem;
       padding: 1rem;
       background-color: ${colors.white};
       box-shadow: 0.6rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.16);
+
+      @media (min-width: 450px) {
+        bottom: calc(-50% + 10rem);
+      }
 
       @media (min-width: 768px) {
         bottom: calc(-45%);

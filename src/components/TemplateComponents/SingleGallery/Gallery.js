@@ -43,7 +43,11 @@ const GalleryStyled = styled.section`
 
     a {
       ${Btn1DarkGrey};
-      margin: auto 2rem;
+      margin: 2rem;
+
+      @media (min-width: 768px) {
+        margin: auto 2rem;
+      }
     }
   }
 `
