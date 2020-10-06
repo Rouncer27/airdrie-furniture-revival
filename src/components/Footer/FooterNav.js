@@ -168,6 +168,7 @@ const FooterNavSection = styled.div`
           width: 5rem;
           height: 5rem;
           margin: auto;
+          transition: all 03s ease-out;
           fill: ${colors.colorPrimary};
 
           @media (min-width: 768px) {

@@ -24,8 +24,7 @@ const Layout = ({ children, location }) => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header location={location} siteTitle={data.site.siteMetadata.title} />
-        <MobileNav location={location} />
+
         <main>{children}</main>
         <Footer />
       </ThemeProvider>
