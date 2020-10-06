@@ -118,9 +118,6 @@ const Form = () => {
     setFormFeilds({})
   }
 
-  console.log({ formStatus })
-  console.log({ formField })
-
   const errors = formStatus.errors
   return (
     <ContactFormSection>

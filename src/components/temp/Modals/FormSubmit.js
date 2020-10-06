@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import BeatLoader from "react-spinners/BeatLoader"
-import { colors, H2DarkGrey } from "../../styles/helpers"
+import { colors, H4DarkGrey } from "../../styles/helpers"
 
 const FormSubmitModal = styled.div`
   display: block;
@@ -67,7 +67,7 @@ const FormSubmitModal = styled.div`
       }
 
       h2 {
-        ${H2DarkGrey};
+        ${H4DarkGrey};
         width: 100%;
         color: ${colors.white};
         text-align: center;

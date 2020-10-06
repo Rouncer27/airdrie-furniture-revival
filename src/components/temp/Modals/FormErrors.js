@@ -1,19 +1,19 @@
 import React from "react"
 import styled from "styled-components"
-import { colors, H2DarkGrey } from "../../styles/helpers"
+import { colors, H4DarkGrey } from "../../styles/helpers"
 import Lottie from "react-lottie"
-import * as formSuccess from "../../styles/elements/lottieAnimations/formSuccess.json"
+import * as formError from "../../styles/elements/lottieAnimations/formError.json"
 
 const defaultOptions = {
   loop: false,
   autoplay: false,
-  animationData: formSuccess.default,
+  animationData: formError.default,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice",
   },
 }
 
-const SuccessModal = styled.div`
+const ErrorModal = styled.div`
   display: block;
   position: fixed;
   top: 0;
@@ -40,7 +40,7 @@ const SuccessModal = styled.div`
     width: 100%;
     margin: 0 auto;
     padding: 4rem;
-    background-color: ${colors.colorTertiary};
+    background-color: ${colors.colorSecondary};
     opacity: 0.95;
     border-radius: 0.75rem;
     box-shadow: 8px 9px 19px 0 rgba(0, 0, 0, 0.49);
@@ -70,15 +70,15 @@ const SuccessModal = styled.div`
         height: 3.5rem;
         transition: all 0.3s ease;
         border-radius: 50%;
-        border: 0.25rem solid ${colors.colorSecondary};
-        background-color: ${colors.colorSecondary};
-        color: ${colors.colorPrimary};
+        border: 0.25rem solid ${colors.colorPrimary};
+        background-color: ${colors.colorPrimary};
+        color: ${colors.colorSecondary};
         font-weight: 700;
         cursor: pointer;
 
         &:hover {
           background-color: ${colors.white};
-          color: ${colors.colorSecondary};
+          color: ${colors.colorPrimary};
         }
       }
     }
@@ -90,9 +90,8 @@ const SuccessModal = styled.div`
         justify-content: center;
         width: 100%;
       }
-
       h2 {
-        ${H2DarkGrey};
+        ${H4DarkGrey};
         width: 100%;
         text-align: center;
       }
@@ -100,9 +99,9 @@ const SuccessModal = styled.div`
   }
 `
 
-const FormSuccess = ({ isActive, handleClose }) => {
+const FormErrors = ({ isActive, handleClose }) => {
   return (
-    <SuccessModal isActive={isActive}>
+    <ErrorModal isActive={isActive}>
       <div className="modalInner">
         <div className="modalInner__content">
           <div>
@@ -114,8 +113,8 @@ const FormSuccess = ({ isActive, handleClose }) => {
             />
           </div>
           <h2>
-            Your from has been successfully sent. <br />
-            We will be in touch shortly, thank you
+            There were a few errors in your form. <br />
+            Please follow the instructions on how to fix them and try again.
           </h2>
         </div>
         <div className="closeButton">
@@ -125,8 +124,8 @@ const FormSuccess = ({ isActive, handleClose }) => {
         </div>
       </div>
       <div className="modalBackground" />
-    </SuccessModal>
+    </ErrorModal>
   )
 }
 
-export default FormSuccess
+export default FormErrors
