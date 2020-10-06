@@ -46,6 +46,7 @@ const MobileNavItem = ({ item, location }) => {
   return (
     <NavItem currentPage={current}>
       <Link to={`/${slug}`}>{item.title}</Link>
+      {subMenu}
     </NavItem>
   )
 }

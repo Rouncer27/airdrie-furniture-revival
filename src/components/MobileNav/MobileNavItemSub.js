@@ -50,20 +50,20 @@ const MobileNavItemSub = props => {
   const { items, currentPageSlug, location } = props
   const [isOpen, setOpen] = useState(false)
 
-  useEffect(() => {
-    const amountOfSubs = subMenu.current.querySelectorAll("li")
-    let heightOfAll = 0
-    amountOfSubs.forEach(listItem => (heightOfAll += listItem.offsetHeight))
+  // useEffect(() => {
+  //   const amountOfSubs = subMenu.current.querySelectorAll("li")
+  //   let heightOfAll = 0
+  //   amountOfSubs.forEach(listItem => (heightOfAll += listItem.offsetHeight))
 
-    if (isOpen) {
-      gsap.to(subMenu.current, {
-        maxHeight: `${heightOfAll}px`,
-        marginBottom: "5rem",
-      })
-    } else {
-      gsap.to(subMenu.current, { maxHeight: "0rem", marginBottom: "0rem" })
-    }
-  }, [isOpen])
+  //   if (isOpen) {
+  //     gsap.to(subMenu.current, {
+  //       maxHeight: `${heightOfAll}px`,
+  //       marginBottom: "5rem",
+  //     })
+  //   } else {
+  //     gsap.to(subMenu.current, { maxHeight: "0rem", marginBottom: "0rem" })
+  //   }
+  // }, [isOpen])
 
   return (
     <MobileSubMenuStyled
