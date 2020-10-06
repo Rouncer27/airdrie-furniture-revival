@@ -217,7 +217,7 @@ const FooterNav = () => {
                 } else if (account.type === "pintrest") {
                   socialIcon = <IconPintrest />
                 }
-                console.log({ account })
+
                 return (
                   <li key={index} className={`social-icon-${account.type}`}>
                     <a

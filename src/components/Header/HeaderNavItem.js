@@ -9,7 +9,7 @@ import HeaderNavItemSubMenu from "./HeaderNavItemSubMenu"
 const NavItem = styled.li`
   position: relative;
   margin: 0 2rem;
-  padding-right: ${props => (props.subMenu ? "2rem" : "0")};
+  ${"" /* padding-right: ${props => (props.subMenu ? "2rem" : "0")}; */}
 
   ${"" /* &::before {
     font-family: ${fonts.fontAwesome};
