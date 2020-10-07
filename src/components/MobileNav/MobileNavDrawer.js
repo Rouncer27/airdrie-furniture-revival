@@ -77,6 +77,7 @@ const MobileNavDrawer = ({ isOpen, location }) => {
   const data = useStaticQuery(getData)
   const menuItems = data.mobileMenu.items
   const { mainLogo } = data
+
   return (
     <NavDrawer isOpen={isOpen}>
       <div className="wrapper">

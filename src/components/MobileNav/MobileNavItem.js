@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { colors } from "../../styles/helpers"
 import MobileNavItemSub from "./MobileNavItemSub"
+import { createSlug } from "../../utils/helperFunc"
 
 const NavItem = styled.li`
   position: relative;
@@ -30,7 +31,11 @@ const NavItem = styled.li`
 `
 
 const MobileNavItem = ({ item, location }) => {
-  const slug = item.object_slug === "home" ? "" : item.object_slug
+  console.log({ item })
+  let navItem = null
+  let slug = null
+  let current = false
+
   const subMenuReq =
     item.wordpress_children !== null
       ? item.wordpress_children.length > 0
@@ -41,11 +46,47 @@ const MobileNavItem = ({ item, location }) => {
   const subMenu = subMenuReq ? (
     <MobileNavItemSub items={item.wordpress_children} />
   ) : null
-  const currentLocation = location.pathname.split("/").join("")
-  const current = slug === currentLocation
+
+  if (item.type === "custom") {
+    const newBrowserWindow = item.target === "_blank" ? true : false
+    if (newBrowserWindow) {
+      navItem = (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={item.url}
+          className="nolink"
+        >
+          {item.title}
+        </a>
+      )
+    } else {
+      navItem = (
+        <a href={item.url} className="nolink">
+          {item.title}
+        </a>
+      )
+    }
+  } else {
+    if (item.url === "") {
+      navItem = <span className="nolink">{item.title}</span>
+    } else {
+      slug = createSlug(item.url)
+      const displaySlug = slug === "/" ? "" : slug
+      current =
+        location !== undefined
+          ? location.pathname.split("/").join("") === slug
+            ? true
+            : false
+          : false
+
+      navItem = <Link to={`/${displaySlug}`}>{item.title}</Link>
+    }
+  }
+
   return (
     <NavItem currentPage={current}>
-      <Link to={`/${slug}`}>{item.title}</Link>
+      {navItem}
       {subMenu}
     </NavItem>
   )
