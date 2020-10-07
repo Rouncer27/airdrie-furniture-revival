@@ -13,6 +13,8 @@ const NavItem = styled.li`
   text-align: center;
   overflow: hidden;
 
+  ${props => console.log(props.currentPage)};
+
   a {
     display: block;
     padding: 1rem 2rem;
@@ -31,7 +33,6 @@ const NavItem = styled.li`
 `
 
 const MobileNavItem = ({ item, location }) => {
-  console.log({ item })
   let navItem = null
   let slug = null
   let current = false
@@ -72,13 +73,15 @@ const MobileNavItem = ({ item, location }) => {
       navItem = <span className="nolink">{item.title}</span>
     } else {
       slug = createSlug(item.url)
-      const displaySlug = slug === "/" ? "" : slug
       current =
-        location !== undefined
-          ? location.pathname.split("/").join("") === slug
+        location?.pathname === "/"
+          ? location?.pathname === slug
             ? true
             : false
+          : location?.pathname.split("/").join("") === slug
+          ? true
           : false
+      const displaySlug = slug === "/" ? "" : slug
 
       navItem = <Link to={`/${displaySlug}`}>{item.title}</Link>
     }
