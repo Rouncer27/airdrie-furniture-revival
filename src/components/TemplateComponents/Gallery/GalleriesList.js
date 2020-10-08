@@ -9,6 +9,7 @@ import {
   fontSizer,
 } from "../../../styles/helpers"
 import { Link } from "gatsby"
+import IconPlus from "../../Icons/IconPlus"
 
 const GalleriesListStyles = styled.div`
   .wrapper {
@@ -36,18 +37,23 @@ const GalleryStyled = styled(Link)`
   .imageGalList {
     position: relative;
 
-    &::before {
-      display: block;
+    &__icon {
       position: absolute;
       top: 50%;
       left: 50%;
+      width: 5rem;
+      height: 5rem;
       transition: all 0.4s ease-out;
       transform: translate(1200%, -50%);
-      color: ${colors.white};
-      font-family: ${fonts.fontAwesome};
-      font-size: ${fontSizer(3, 5, 76.8, 150, 7)};
-      content: "\f002";
-      z-index: 10;
+      z-index: 100;
+
+      svg {
+        width: 5rem;
+        height: 5rem;
+        g {
+          fill: #fff;
+        }
+      }
     }
 
     &::after {
@@ -64,7 +70,7 @@ const GalleryStyled = styled(Link)`
     }
 
     &:hover {
-      &::before {
+      .imageGalList__icon {
         transform: translate(-50%, -50%);
       }
       &::after {
@@ -95,6 +101,9 @@ const GalleriesList = ({ galleries }) => {
                   }
                   alt={gallery.node.title}
                 />
+                <div className="imageGalList__icon">
+                  <IconPlus />
+                </div>
               </div>
             </GalleryStyled>
           )

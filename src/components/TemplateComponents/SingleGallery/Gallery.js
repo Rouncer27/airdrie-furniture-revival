@@ -11,6 +11,7 @@ import {
 } from "../../../styles/helpers"
 import { Link } from "gatsby"
 import GallerySlider from "./GallerySlider"
+import IconPlus from "../../Icons/IconPlus"
 
 const GalleryStyled = styled.section`
   margin-top: 7.5rem;
@@ -65,18 +66,23 @@ const GalleryImage = styled.div`
     width: calc(33.33% - 4rem);
   }
 
-  &::before {
-    display: block;
+  .imageGalList__icon {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 5rem;
+    height: 5rem;
     transition: all 0.4s ease-out;
-    transform: translate(500%, -50%);
-    color: ${colors.white};
-    font-family: ${fonts.fontAwesome};
-    font-size: ${fontSizer(3, 5, 76.8, 150, 7)};
-    content: "\f002";
-    z-index: 10;
+    transform: translate(1200%, -50%);
+    z-index: 100;
+
+    svg {
+      width: 5rem;
+      height: 5rem;
+      g {
+        fill: #fff;
+      }
+    }
   }
 
   &::after {
@@ -94,7 +100,7 @@ const GalleryImage = styled.div`
 
   &:hover {
     cursor: pointer;
-    &::before {
+    .imageGalList__icon {
       transform: translate(-50%, -50%);
     }
     &::after {
@@ -127,6 +133,9 @@ const Gallery = ({ gallery }) => {
                 fluid={image.localFile.childImageSharp.fluid}
                 alt={image.alt_text}
               />
+              <div className="imageGalList__icon">
+                <IconPlus />
+              </div>
             </GalleryImage>
           )
         })}
