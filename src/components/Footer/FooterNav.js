@@ -8,6 +8,7 @@ import {
   B2White,
   fonts,
   B2Pink,
+  B1White,
 } from "../../styles/helpers"
 
 import FooterCopy from "./FooterCopy"
@@ -100,9 +101,13 @@ const FooterNavSection = styled.div`
       width: 100%;
 
       a {
-        ${B2White};
+        ${B1White};
         display: block;
         text-transform: uppercase;
+
+        &:hover {
+          color: ${colors.colorSecondary};
+        }
       }
     }
   }
@@ -242,6 +247,7 @@ const FooterNav = () => {
                 </Link>
               )
             })}
+            <a href="https://shop.airdriefurniturerevival.ca/">Shop</a>
           </nav>
         </div>
         <FooterCopy />

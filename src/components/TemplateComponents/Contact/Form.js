@@ -129,7 +129,7 @@ const Form = () => {
               name="fullName"
               id="fullName"
               type="text"
-              required={false}
+              required={true}
               errors={errors}
               value={formField.fullName ? formField.fullName : ""}
               handleOnChange={handleFieldChange}
@@ -139,7 +139,7 @@ const Form = () => {
               name="emailaddress"
               id="emailaddress"
               type="email"
-              required={false}
+              required={true}
               errors={errors}
               value={formField.emailaddress ? formField.emailaddress : ""}
               handleOnChange={handleFieldChange}
@@ -149,7 +149,7 @@ const Form = () => {
               name="phonenumber"
               id="phonenumber"
               type="text"
-              required={false}
+              required={true}
               errors={errors}
               value={formField.phonenumber ? formField.phonenumber : ""}
               handleOnChange={handleFieldChange}
@@ -158,7 +158,7 @@ const Form = () => {
               label="Comment"
               name="comment"
               id="comment"
-              required={false}
+              required={true}
               rows={12}
               errors={errors}
               value={formField.comment ? formField.comment : ""}

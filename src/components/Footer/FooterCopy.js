@@ -79,6 +79,8 @@ const FooterCopy = () => {
           <Link to="/privacy-policy">Privacy</Link>
           {" | "}
           <Link to="/disclaimer">Disclaimer</Link>
+          {" | "}
+          <Link to="/terms-conditions">Terms</Link>
         </div>
         <div className="footCopy">
           <p>
