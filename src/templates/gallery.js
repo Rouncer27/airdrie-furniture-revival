@@ -7,11 +7,16 @@ import Intro from "../components/TemplateComponents/Gallery/Intro"
 import GalleriesList from "../components/TemplateComponents/Gallery/GalleriesList"
 
 const gallery = props => {
-  const { intro, galleries } = props.data
+  const { seoInfo, intro, galleries } = props.data
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="Gallery Page" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro intro={intro} />
       <GalleriesList galleries={galleries} />
     </Layout>
@@ -20,6 +25,17 @@ const gallery = props => {
 
 export const galleryQuery = graphql`
   query galleryPage($id: Int!) {
+    seoInfo: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
     intro: wordpressPage(wordpress_id: { eq: $id }) {
       acf {
         _afr_gall_intro_title

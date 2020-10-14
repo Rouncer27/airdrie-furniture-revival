@@ -8,11 +8,16 @@ import Steps from "../components/TemplateComponents/HowItWorks/Steps"
 import BringOwn from "../components/TemplateComponents/HowItWorks/BringOwn"
 
 const howItWorks = props => {
-  const { howItWorksIntro, steps } = props.data
+  const { seoInfo, howItWorksIntro, steps } = props.data
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="Home" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro intro={howItWorksIntro} />
       <Steps steps={steps} />
       <BringOwn />
@@ -22,6 +27,17 @@ const howItWorks = props => {
 
 export const howItWorksQuery = graphql`
   query howItWorksPage($id: Int!) {
+    seoInfo: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
     howItWorksIntro: wordpressPage(wordpress_id: { eq: $id }) {
       acf {
         _afr_htw_intro_image_centre {

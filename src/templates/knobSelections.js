@@ -7,11 +7,16 @@ import Intro from "../components/TemplateComponents/Knob/Intro"
 import Knobs from "../components/TemplateComponents/Knob/Knobs"
 
 const knobSelections = props => {
-  const { intro, knobs } = props.data
+  const { seoInfo, intro, knobs } = props.data
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="Knob Selections" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro intro={intro} />
       <Knobs knobs={knobs} />
     </Layout>
@@ -20,6 +25,17 @@ const knobSelections = props => {
 
 export const knobQuery = graphql`
   query knobPage($id: Int!) {
+    seoInfo: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
     intro: wordpressPage(wordpress_id: { eq: $id }) {
       acf {
         _afr_knob_intro_title

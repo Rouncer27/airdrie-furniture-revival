@@ -9,11 +9,16 @@ import AsSeenOn from "../components/TemplateComponents/Contact/AsSeenOn"
 import Form from "../components/TemplateComponents/Contact/Form"
 
 const contact = props => {
-  const { contactIntro, testimonials, asSeenOn } = props.data
+  const { seoInfo, contactIntro, testimonials, asSeenOn } = props.data
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="content" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro contactIntro={contactIntro} />
       <Form />
       <AsSeenOn asSeenOn={asSeenOn} />
@@ -24,6 +29,17 @@ const contact = props => {
 
 export const connectQuery = graphql`
   query connectPage($id: Int!) {
+    seoInfo: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
     contactIntro: wordpressPage(wordpress_id: { eq: $id }) {
       acf {
         _afr_cpit_image_left {

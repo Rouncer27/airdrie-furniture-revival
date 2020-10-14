@@ -6,11 +6,16 @@ import Intro from "../components/TemplateComponents/Faqs/Intro"
 import Faqs from "../components/TemplateComponents/Faqs/Faqs"
 
 const faq = props => {
-  const { intro, faqs } = props.data
+  const { seoInfo, intro, faqs } = props.data
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="Bring you own furniture" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro intro={intro} />
       <Faqs faqs={faqs} />
     </Layout>
@@ -19,6 +24,17 @@ const faq = props => {
 
 export const faqsQuery = graphql`
   query faqsPage($id: Int!) {
+    seoInfo: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
     intro: wordpressPage(wordpress_id: { eq: $id }) {
       acf {
         _afr_faqs_intro_title

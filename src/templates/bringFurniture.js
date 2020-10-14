@@ -7,11 +7,16 @@ import Intro from "../components/TemplateComponents/BYOF/Intro"
 import Points from "../components/TemplateComponents/BYOF/Points"
 
 const bringFurniture = props => {
-  const { intro, points } = props.data
+  const { seoInfo, intro, points } = props.data
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="Bring you own furniture" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro intro={intro} />
       <Points points={points} />
     </Layout>
@@ -20,6 +25,17 @@ const bringFurniture = props => {
 
 export const byofQuery = graphql`
   query byofPage($id: Int!) {
+    seoInfo: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
     intro: wordpressPage(wordpress_id: { eq: $id }) {
       acf {
         _afr_byof_intro_title
