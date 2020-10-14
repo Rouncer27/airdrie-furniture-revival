@@ -7,6 +7,9 @@ module.exports = {
     title: `Airdrie Furniture Revival`,
     description: `Airdrie Furniture Revival.`,
     author: `@switchback4ever`,
+    metaImg: `src/images/airdrie-furniture-revival-seo-meta-image.png`,
+    siteLogo: `src/images/airdrie-furniture-revival.png`,
+    siteUrl: `https://airdriefurniturerevival.ca/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

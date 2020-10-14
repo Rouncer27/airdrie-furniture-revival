@@ -13,6 +13,7 @@ import Showcase from "../components/TemplateComponents/About/Showcase"
 
 const about = props => {
   const {
+    seoInfo,
     aboutIntro,
     aboutDetails,
     testimonials,
@@ -23,7 +24,12 @@ const about = props => {
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="About" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro aboutIntro={aboutIntro} />
       <AboutDetails aboutDetails={aboutDetails} />
       <NewsArticles newsArticles={newsArticles} />
@@ -36,6 +42,17 @@ const about = props => {
 
 export const aboutQuery = graphql`
   query aboutPage($id: Int!) {
+    seoInfo: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
     aboutIntro: wordpressPage(wordpress_id: { eq: $id }) {
       acf {
         _afr_apit_image_left {

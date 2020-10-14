@@ -14,6 +14,7 @@ import Showcase from "../components/TemplateComponents/Home/Showcase"
 
 const IndexPage = props => {
   const {
+    seoInfo,
     homeIntro,
     closedCrop,
     mailChimp,
@@ -26,7 +27,12 @@ const IndexPage = props => {
   const location = props.location
   return (
     <Layout location={location}>
-      <SEO title="Home" />
+      <SEO
+        title={seoInfo.acf._swb_theme_meta_title}
+        description={seoInfo.acf._swb_theme_description}
+        metaImg={seoInfo.acf._swb_theme_image.localFile.publicURL}
+        location={location.pathname}
+      />
       <Intro homeIntro={homeIntro} />
       <ClosedCrop closedCrop={closedCrop} />
       <MailChimpList mailChimp={mailChimp} />
@@ -41,6 +47,18 @@ const IndexPage = props => {
 
 export const homeQuery = graphql`
   {
+    seoInfo: wordpressPage(slug: { eq: "home" }) {
+      acf {
+        _swb_theme_meta_title
+        _swb_theme_description
+        _swb_theme_image {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
+
     homeIntro: wordpressPage(slug: { eq: "home" }) {
       acf {
         _afr_hpit_image_left {
