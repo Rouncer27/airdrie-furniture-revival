@@ -54,6 +54,13 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-180643928-1",
+        head: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://airdriefurniturerevival.ca/",
