@@ -21,6 +21,8 @@ const getData = graphql`
           title
           object_slug
           url
+          target
+          type
         }
       }
     }

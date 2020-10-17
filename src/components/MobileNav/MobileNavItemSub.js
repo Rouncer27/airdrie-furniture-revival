@@ -89,6 +89,7 @@ const MobileNavItemSub = props => {
             url={item.url}
             location={location}
             key={index}
+            item={item}
           />
         )
       })}

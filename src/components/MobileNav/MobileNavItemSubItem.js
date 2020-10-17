@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { fonts, fontSizer, colors } from "../../styles/helpers"
+import { createSlug } from "../../utils/helperFunc"
 
 const MainNavSubMenuItemStyled = styled.li`
   ${fontSizer(1.2, 1.3, 76.8, 150, 1.4)}
@@ -35,7 +36,12 @@ const MainNavSubMenuItem = ({
   title,
   location,
   url,
+  item,
 }) => {
+  let navItem = null
+  let slug = null
+  let current = false
+
   const isCurrentSub =
     `${currentPageSlug}/${objectSlug}` === location ||
     `${currentPageSlug}/${objectSlug}/` === location
@@ -58,11 +64,49 @@ const MainNavSubMenuItem = ({
     })
     .join("/")
 
+  // ITEM //
+  if (item.type === "custom") {
+    const newBrowserWindow = item.target === "_blank" ? true : false
+    if (newBrowserWindow) {
+      navItem = (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={item.url}
+          className="nolink"
+        >
+          {item.title}
+        </a>
+      )
+    } else {
+      navItem = (
+        <a href={item.url} className="nolink">
+          {item.title}
+        </a>
+      )
+    }
+  } else {
+    if (item.url === "") {
+      navItem = <span className="nolink">{item.title}</span>
+    } else {
+      slug = createSlug(item.url)
+      current =
+        location?.pathname === "/"
+          ? location?.pathname === slug
+            ? true
+            : false
+          : location?.pathname.split("/").join("") === slug
+          ? true
+          : false
+      const displaySlug = slug === "/" ? "" : slug
+
+      navItem = <Link to={`/${displaySlug}`}>{item.title}</Link>
+    }
+  }
+
   return (
     <MainNavSubMenuItemStyled isCurrentSub={isCurrentSub}>
-      <Link className="sub-menu-link" to={`/${subSlug}`}>
-        {title}
-      </Link>
+      {navItem}
     </MainNavSubMenuItemStyled>
   )
 }

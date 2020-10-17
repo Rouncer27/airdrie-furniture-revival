@@ -13,8 +13,6 @@ const NavItem = styled.li`
   text-align: center;
   overflow: hidden;
 
-  ${props => console.log(props.currentPage)};
-
   a {
     display: block;
     padding: 1rem 2rem;
