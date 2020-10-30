@@ -6,7 +6,7 @@ import SEO from "../components/Seo"
 import Intro from "../components/TemplateComponents/Contact/Intro"
 import Testimonials from "../components/TemplateComponents/Contact/Testimonials"
 import AsSeenOn from "../components/TemplateComponents/Contact/AsSeenOn"
-import Form from "../components/TemplateComponents/Contact/Form"
+import ContactBlock from "../components/TemplateComponents/Contact/ContactBlock"
 
 const contact = props => {
   const { seoInfo, contactIntro, testimonials, asSeenOn } = props.data
@@ -20,7 +20,7 @@ const contact = props => {
         location={location.pathname}
       />
       <Intro contactIntro={contactIntro} />
-      <Form />
+      <ContactBlock />
       <AsSeenOn asSeenOn={asSeenOn} />
       <Testimonials testimonials={testimonials} />
     </Layout>
