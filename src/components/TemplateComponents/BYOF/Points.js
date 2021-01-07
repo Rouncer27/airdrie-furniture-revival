@@ -95,10 +95,12 @@ const Points = ({ points }) => {
             />
           </div>
           <div className="pointsSide__title">
-            <h3>Ready to shop our pieces or customize your own?</h3>
+            <h3>Ready to customize your own piece?</h3>
           </div>
           <div className="pointsSide__link">
-            <a href="https://shop.airdriefurniturerevival.ca/">Shop Now</a>
+            <a href="https://shop.airdriefurniturerevival.ca/bring-your-own-furniture/">
+              Submit a quote request
+            </a>
           </div>
         </div>
       </div>
