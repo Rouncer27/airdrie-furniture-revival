@@ -11,6 +11,7 @@ import HowItWorks from "../components/TemplateComponents/Home/HowItWorks"
 import AsSeenOn from "../components/TemplateComponents/Home/AsSeenOn"
 import Testimonials from "../components/TemplateComponents/Home/Testimonials"
 import Showcase from "../components/TemplateComponents/Home/Showcase"
+import BringOwnFurniture from "../components/TemplateComponents/Home/BringOwnFurniture"
 
 const IndexPage = props => {
   const {
@@ -25,6 +26,7 @@ const IndexPage = props => {
     showcase,
   } = props.data
   const location = props.location
+
   return (
     <Layout location={location}>
       <SEO
@@ -37,6 +39,7 @@ const IndexPage = props => {
       <ClosedCrop closedCrop={closedCrop} />
       <MailChimpList mailChimp={mailChimp} />
       <ShopNow shopNow={shopNow} />
+      <BringOwnFurniture />
       <HowItWorks howItWorks={howItWorks} />
       <AsSeenOn asSeenOn={asSeenOn} />
       <Testimonials testimonials={testimonials} />
