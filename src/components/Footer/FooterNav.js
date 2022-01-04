@@ -81,8 +81,11 @@ const FooterNavSection = styled.div`
   }
 
   .storehours {
+    margin-top: 2rem;
+
     @media (min-width: 768px) {
       width: 50%;
+      margin-top: 0;
     }
 
     p {
