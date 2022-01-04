@@ -1,12 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import {
-  B1DarkGrey,
-  colors,
-  H1DarkGrey,
-  standardWrapper,
-} from "../../../styles/helpers"
+import { graphql, useStaticQuery } from "gatsby"
+import { B1DarkGrey, colors, standardWrapper } from "../../../styles/helpers"
 
 import IconFacebook from "../../Icons/IconFacebook"
 import IconInstagram from "../../Icons/IconInstagram"
@@ -42,10 +37,6 @@ const ContactBlockStyled = styled.section`
   }
 
   .contentWrapper {
-    h2 {
-      ${H1DarkGrey};
-    }
-
     p,
     a {
       ${B1DarkGrey};
@@ -114,39 +105,18 @@ const ContactBlockStyled = styled.section`
   }
 `
 
-const ContactBlock = () => {
+const ContactBlock = ({ aboutShopContent }) => {
   const data = useStaticQuery(getData)
   const { footerLogo } = data
   return (
     <ContactBlockStyled>
       <div className="wrapper">
         <div className="contentWrapper">
-          <p>
-            If you are looking for more{" "}
-            <Link to="/how-it-works/byo-furniture/">
-              Bring Your Own Furniture
-            </Link>{" "}
-            pricing information we have a guidelines pricing information here.{" "}
-          </p>
-          <p>
-            If you are ready to have a piece of furniture you already have
-            customized,{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://shop.airdriefurniturerevival.ca/product-category/bring-your-own-furniture/"
-            >
-              visit our SHOP - BYOF and start the process.
-            </a>
-          </p>
-          <p>
-            For other <Link to="/faq">Frequently Asked Questions</Link> this is
-            here to help!
-          </p>
-          <p>
-            If you want to engage with us on social media and message us there
-            we are open to that as well.
-          </p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: aboutShopContent.acf._afr_shop_about_content,
+            }}
+          />
 
           <div className="socialIcons">
             {footerLogo.options.afr_social_media_accounts.map(

@@ -63,6 +63,14 @@ const IntroSection = styled.section`
         width: 100%;
         padding: 2rem 5rem;
 
+        @media (min-width: 768px) {
+          padding: 4rem 7.5rem;
+        }
+
+        @media (min-width: 1025px) {
+          padding: 4rem 8rem;
+        }
+
         h2 {
           ${H1White};
         }

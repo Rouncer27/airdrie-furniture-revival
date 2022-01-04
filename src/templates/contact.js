@@ -7,9 +7,18 @@ import Intro from "../components/TemplateComponents/Contact/Intro"
 import Testimonials from "../components/TemplateComponents/Contact/Testimonials"
 import AsSeenOn from "../components/TemplateComponents/Contact/AsSeenOn"
 import ContactBlock from "../components/TemplateComponents/Contact/ContactBlock"
+import ShopLocation from "../components/TemplateComponents/Contact/ShopLocation"
 
 const contact = props => {
-  const { seoInfo, contactIntro, testimonials, asSeenOn } = props.data
+  const {
+    seoInfo,
+    contactIntro,
+    testimonials,
+    asSeenOn,
+    aboutShopContent,
+    shopLocation,
+    shopGallery,
+  } = props.data
   const location = props.location
   return (
     <Layout location={location}>
@@ -20,7 +29,8 @@ const contact = props => {
         location={location.pathname}
       />
       <Intro contactIntro={contactIntro} />
-      <ContactBlock />
+      <ContactBlock aboutShopContent={aboutShopContent} />
+      <ShopLocation shopLocation={shopLocation} />
       <AsSeenOn asSeenOn={asSeenOn} />
       <Testimonials testimonials={testimonials} />
     </Layout>
@@ -70,6 +80,46 @@ export const connectQuery = graphql`
             childImageSharp {
               fluid(maxWidth: 500) {
                 ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+
+    aboutShopContent: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _afr_shop_about_content
+      }
+    }
+
+    shopLocation: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _afr_shop_location_map {
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1500) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        _afr_shop_location_link
+        _acf_shop_hours
+      }
+    }
+
+    shopGallery: wordpressPage(wordpress_id: { eq: $id }) {
+      acf {
+        _acf_shop_gallery {
+          image {
+            alt_text
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1500) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
               }
             }
           }
