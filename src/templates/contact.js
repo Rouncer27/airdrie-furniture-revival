@@ -8,6 +8,7 @@ import Testimonials from "../components/TemplateComponents/Contact/Testimonials"
 import AsSeenOn from "../components/TemplateComponents/Contact/AsSeenOn"
 import ContactBlock from "../components/TemplateComponents/Contact/ContactBlock"
 import ShopLocation from "../components/TemplateComponents/Contact/ShopLocation"
+import ShopGallery from "../components/TemplateComponents/Contact/ShopGallery"
 
 const contact = props => {
   const {
@@ -31,6 +32,7 @@ const contact = props => {
       <Intro contactIntro={contactIntro} />
       <ContactBlock aboutShopContent={aboutShopContent} />
       <ShopLocation shopLocation={shopLocation} />
+      <ShopGallery shopGallery={shopGallery} />
       <AsSeenOn asSeenOn={asSeenOn} />
       <Testimonials testimonials={testimonials} />
     </Layout>

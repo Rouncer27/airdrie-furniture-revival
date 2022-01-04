@@ -4,7 +4,6 @@ import Img from "gatsby-image"
 import { B1DarkGrey, standardWrapper } from "../../../styles/helpers"
 
 const ShopLocation = ({ shopLocation }) => {
-  console.log({ shopLocation })
   return (
     <SectionStyled>
       <div className="wrapper">
