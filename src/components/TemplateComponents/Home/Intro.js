@@ -79,7 +79,15 @@ const IntroSection = styled.section`
 
       &--inner {
         width: 100%;
-        padding: 2rem 5rem;
+        padding: 2rem;
+
+        @media (min-width: 768px) {
+          padding: 2rem 5rem;
+        }
+
+        @media (min-width: 1025px) {
+          padding: 2rem 10rem;
+        }
 
         h2 {
           ${H1DarkGrey};
@@ -175,15 +183,15 @@ const IntroSection = styled.section`
 
     @media (min-width: 768px) {
       display: block;
-      top: 29.5%;
+      top: calc(50% - 7rem);
       left: calc(33.33% - (17.5rem / 2));
       width: 17.5rem;
       height: 17.5rem;
     }
 
     @media (min-width: 1025px) {
-      top: 29.5%;
-      left: 16.5%;
+      top: calc(50% - 8rem);
+      left: 15%;
       width: 20rem;
       height: 20rem;
     }

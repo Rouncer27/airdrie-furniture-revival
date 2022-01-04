@@ -13,6 +13,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 const BringOwnFurninuteSection = styled.section`
+  margin-bottom: 2rem;
   padding-top: 5rem;
   padding-bottom: 5rem;
   background-color: ${colors.colorSecondary};
@@ -61,12 +62,10 @@ const BringOwnFurninute = () => {
       <div className="wrapper">
         <div className="mainContent">
           <div>
-            <h2>Submit a quote for us to refinish a piece you own</h2>
-            <p>Bring your Own Furniture</p>
+            <h2>Can’t make it to the store?</h2>
+            <p>No problem, shop online here.</p>
             <div className="btnContainer">
-              <a href="https://shop.airdriefurniturerevival.ca/bring-your-own-furniture/">
-                Submit Quote
-              </a>
+              <a href="https://shop.airdriefurniturerevival.ca/">Shop Online</a>
             </div>
           </div>
         </div>

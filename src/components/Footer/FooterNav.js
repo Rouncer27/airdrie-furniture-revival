@@ -20,6 +20,7 @@ const getData = graphql`
   {
     footerLogo: wordpressAcfOptions {
       options {
+        acf_store_hours
         afr_footer_logo {
           alt_text
           localFile {
@@ -76,6 +77,16 @@ const FooterNavSection = styled.div`
       width: calc(50% - 5rem);
       margin-right: 5rem;
       padding: 2rem;
+    }
+  }
+
+  .storehours {
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+
+    p {
+      ${B1White};
     }
   }
 
@@ -238,7 +249,7 @@ const FooterNav = () => {
             )}
           </div>
         </div>
-        <div className="navItems">
+        {/* <div className="navItems">
           <nav>
             {footerMenu.items.map(item => {
               return (
@@ -249,6 +260,13 @@ const FooterNav = () => {
             })}
             <a href="https://shop.airdriefurniturerevival.ca/">Shop</a>
           </nav>
+        </div> */}
+        <div className="storehours">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: footerLogo.options.acf_store_hours,
+            }}
+          />
         </div>
         <FooterCopy />
       </div>
