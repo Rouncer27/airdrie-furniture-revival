@@ -261,7 +261,9 @@ const FooterNav = () => {
                 </Link>
               )
             })}
-            <a href="https://shop.airdriefurniturerevival.ca/">Shop</a>
+            <a target="_blank"
+                rel="noopener noreferrer"
+                href="https://airdrie-furniture-revival.square.site/">Shop</a>
           </nav>
         </div> */}
         <div className="storehours">

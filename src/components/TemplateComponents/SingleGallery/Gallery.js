@@ -143,7 +143,13 @@ const Gallery = ({ gallery }) => {
       <div className="galleryLinks">
         <div className="galleryLinks__wrapper">
           <Link to={`/gallery`}>Back to Gallery</Link>
-          <a href="https://shop.airdriefurniturerevival.ca/">Shop Now</a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://airdrie-furniture-revival.square.site/"
+          >
+            Shop Now
+          </a>
         </div>
       </div>
       {isSliderActive && (

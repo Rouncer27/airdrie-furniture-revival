@@ -98,7 +98,11 @@ const Points = ({ points }) => {
             <h3>Ready to customize your own piece?</h3>
           </div>
           <div className="pointsSide__link">
-            <a href="https://shop.airdriefurniturerevival.ca/bring-your-own-furniture/">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://airdrie-furniture-revival.square.site/"
+            >
               Submit a quote request
             </a>
           </div>

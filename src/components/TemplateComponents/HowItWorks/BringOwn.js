@@ -66,7 +66,13 @@ const BringOwn = () => {
     <BringOwnSection>
       <div className="wrapper">
         <div className="shopNow">
-          <a href="https://shop.airdriefurniturerevival.ca/">Shop Now</a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://airdrie-furniture-revival.square.site/"
+          >
+            Shop Now
+          </a>
           <div className="shopNow__paint">
             <GreenPaint />
           </div>

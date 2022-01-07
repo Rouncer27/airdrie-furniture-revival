@@ -67,7 +67,13 @@ const Faqs = ({ faqs }) => {
             <h3>Check out what's waiting for you</h3>
           </div>
           <div className="pointsSide__link">
-            <a href="https://shop.airdriefurniturerevival.ca/">Shop Now</a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://airdrie-furniture-revival.square.site/"
+            >
+              Shop Now
+            </a>
           </div>
         </div>
       </div>

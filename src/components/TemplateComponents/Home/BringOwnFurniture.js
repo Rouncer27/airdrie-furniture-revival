@@ -65,7 +65,13 @@ const BringOwnFurninute = () => {
             <h2>Can’t make it to the store?</h2>
             <p>No problem, shop online here.</p>
             <div className="btnContainer">
-              <a href="https://shop.airdriefurniturerevival.ca/">Shop Online</a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://airdrie-furniture-revival.square.site/"
+              >
+                Shop Online
+              </a>
             </div>
           </div>
         </div>
