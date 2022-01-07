@@ -10,7 +10,12 @@ const GalleryLink = ({ links }) => {
       <div className="wrapper">
         {links.acf._afr_links.map((link, index) => {
           return (
-            <GalleryLinkItem href={link.url} key={index}>
+            <GalleryLinkItem
+              target="_blank"
+              rel="noopener noreferrer"
+              href={link.url}
+              key={index}
+            >
               <div className="content">
                 <p>Featured Item</p>
                 <h2>{link.title}</h2>
