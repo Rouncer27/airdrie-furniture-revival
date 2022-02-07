@@ -77,12 +77,12 @@ const BringOwn = () => {
             <GreenPaint />
           </div>
         </div>
-        <div className="shopTitle">
+        {/* <div className="shopTitle">
           <h2>Want to bring your own furniture?</h2>
         </div>
         <div className="shopLearn">
           <Link to="/how-it-works/byo-furniture">Learn More</Link>
-        </div>
+        </div> */}
       </div>
     </BringOwnSection>
   )
