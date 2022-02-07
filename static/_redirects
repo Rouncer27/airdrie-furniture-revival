@@ -3,3 +3,7 @@ https://www.airdriefurniturerevival.ca/* https://airdriefurniturerevival.ca/:spl
 
 # Optional: Redirect default Netlify subdomain to primary domain
 https://airdrie-furniture-revival.netlify.app/* https://airdriefurniturerevival.ca/:splat 301!
+
+
+how-it-works/byo-furniture how-it-works
+how-it-works/byo-furniture/ how-it-works
