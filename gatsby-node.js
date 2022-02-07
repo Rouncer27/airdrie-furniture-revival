@@ -65,15 +65,16 @@ exports.createPages = async ({ graphql, actions }) => {
             id: node.wordpress_id,
           },
         })
-      } else if (node.template === "tpl-page-bring-furniture.php") {
-        createPage({
-          path: `${node.path}`,
-          component: path.resolve(`./src/templates/bringFurniture.js`),
-          context: {
-            id: node.wordpress_id,
-          },
-        })
       }
+      // } else if (node.template === "tpl-page-bring-furniture.php") {
+      //   createPage({
+      //     path: `${node.path}`,
+      //     component: path.resolve(`./src/templates/bringFurniture.js`),
+      //     context: {
+      //       id: node.wordpress_id,
+      //     },
+      //   })
+      // }
       // else if (node.template === "tpl-page-knob-selection.php") {
       //   createPage({
       //     path: `${node.path}`,
