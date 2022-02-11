@@ -49,15 +49,18 @@ exports.createPages = async ({ graphql, actions }) => {
             id: node.wordpress_id,
           },
         })
-      } else if (node.template === "tpl-page-how-it-works.php") {
-        createPage({
-          path: `/${node.slug}`,
-          component: path.resolve(`./src/templates/howItWorks.js`),
-          context: {
-            id: node.wordpress_id,
-          },
-        })
-      } else if (node.template === "tpl-page-faq.php") {
+      }
+
+      // else if (node.template === "tpl-page-how-it-works.php") {
+      //   createPage({
+      //     path: `/${node.slug}`,
+      //     component: path.resolve(`./src/templates/howItWorks.js`),
+      //     context: {
+      //       id: node.wordpress_id,
+      //     },
+      //   })
+      // }
+      else if (node.template === "tpl-page-faq.php") {
         createPage({
           path: `/${node.slug}`,
           component: path.resolve(`./src/templates/faq.js`),
